@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-11-18T15:21:23 ICT" name="Default Suite" finished-at="2024-11-18T15:21:48 ICT" duration-ms="24363">
+    <groups>
+    </groups>
+    <test started-at="2024-11-18T15:21:23 ICT" name="DemoTestNG" finished-at="2024-11-18T15:21:48 ICT" duration-ms="24363">
+      <class name="com.myngoc.demotestng.login.LoginPageTest">
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:23 ICT" name="setUpDriver" finished-at="2024-11-18T15:21:27 ICT" duration-ms="3956" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:27 ICT" name="testLogin" data-provider="loginData" finished-at="2024-11-18T15:21:28 ICT" duration-ms="1033" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0932877995]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ngoc@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[true]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:28 ICT" name="tearDownDriver" finished-at="2024-11-18T15:21:29 ICT" duration-ms="229" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownDriver -->
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:29 ICT" name="setUpDriver" finished-at="2024-11-18T15:21:32 ICT" duration-ms="3051" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:32 ICT" name="testLogin" data-provider="loginData" finished-at="2024-11-18T15:21:33 ICT" duration-ms="911" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0932877995]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Nnn@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:33 ICT" name="tearDownDriver" finished-at="2024-11-18T15:21:33 ICT" duration-ms="200" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownDriver -->
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:33 ICT" name="setUpDriver" finished-at="2024-11-18T15:21:36 ICT" duration-ms="2834" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:36 ICT" name="testLogin" data-provider="loginData" finished-at="2024-11-18T15:21:36 ICT" duration-ms="856" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0384753419]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ngoc@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:36 ICT" name="tearDownDriver" finished-at="2024-11-18T15:21:37 ICT" duration-ms="212" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownDriver -->
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:37 ICT" name="setUpDriver" finished-at="2024-11-18T15:21:39 ICT" duration-ms="2797" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:39 ICT" name="testLogin" data-provider="loginData" finished-at="2024-11-18T15:21:40 ICT" duration-ms="880" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[0932877995]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:40 ICT" name="tearDownDriver" finished-at="2024-11-18T15:21:41 ICT" duration-ms="199" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownDriver -->
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:41 ICT" name="setUpDriver" finished-at="2024-11-18T15:21:41 ICT" duration-ms="853" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:41 ICT" name="testLogin" data-provider="loginData" finished-at="2024-11-18T15:21:44 ICT" duration-ms="2341" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ngoc@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:44 ICT" name="tearDownDriver" finished-at="2024-11-18T15:21:44 ICT" duration-ms="171" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownDriver -->
+        <test-method is-config="true" signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:44 ICT" name="setUpDriver" finished-at="2024-11-18T15:21:47 ICT" duration-ms="2674" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpDriver -->
+        <test-method signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:47 ICT" name="testLogin" data-provider="loginData" finished-at="2024-11-18T15:21:47 ICT" duration-ms="874" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[false]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method is-config="true" signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]" started-at="2024-11-18T15:21:47 ICT" name="tearDownDriver" finished-at="2024-11-18T15:21:48 ICT" duration-ms="187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownDriver -->
+      </class> <!-- com.myngoc.demotestng.login.LoginPageTest -->
+    </test> <!-- DemoTestNG -->
+  </suite> <!-- Default Suite -->
+</testng-results>
