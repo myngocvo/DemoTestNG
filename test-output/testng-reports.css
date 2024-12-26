@@ -158,20 +158,21 @@ a:hover {
     color: #fff;
     text-align: center;
 }
-.button{
+
+.button {
     position: absolute;
-    margin-left:500px;
-    margin-top:8px;
+    margin-left: 500px;
+    margin-top: 8px;
     background-color: white;
-    color:#0066ff;
+    color: #0066ff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight:bold;
-    border-color:#0066ff ;
-    border-radius:25px;
+    font-weight: bold;
+    border-color: #0066ff;
+    border-radius: 25px;
     cursor: pointer;
-    height:30px;
-    width:150px;
-    outline:none;
+    height: 30px;
+    width: 150px;
+    outline: none;
 
 }
 
@@ -323,4 +324,5 @@ table.google-visualization-table-table {
     padding: 5px;
     float: right;
 }
+
 /*retro Theme*/

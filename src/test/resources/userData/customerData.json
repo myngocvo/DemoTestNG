@@ -1,0 +1,50 @@
+{
+  "customer1": {
+    "name": "Võ Thị Mỹ Ngọc",
+    "phoneNumber": "0932877994",
+    "email": "MyNgoc@2207@gmail.com",
+    "gender": "Nữ",
+    "birthDay": "7/22/2003",
+    "address": {
+      "city": "Hồng Ngự",
+      "district": "Đồng Tháp",
+      "ward": "212 Nguyễn Thị Minh Khai"
+    }
+  },
+  "customer2": {
+    "name": "Võ Văn A",
+    "phoneNumber": "0932877994",
+    "email": "vovana@gmail.com",
+    "gender": "Nam",
+    "birthDay": "5/3/2003",
+    "address": {
+      "city": "Cao Lãnh",
+      "district": "Đồng Tháp",
+      "ward": "121 Nguyễn Thị Minh Khai"
+    }
+  },
+  "invalidPhoneNumberCustomer": {
+    "name": "Võ Thị Mỹ Ngọc",
+    "phoneNumber": "09328779",
+    "email": "MyNgoc@2207@gmail.com",
+    "gender": "Nữ",
+    "birthDay": "7/22/2003",
+    "address": {
+      "city": "Hồng Ngự",
+      "district": "Đồng Tháp",
+      "ward": "212 Nguyễn Thị Minh Khai"
+    }
+  },
+  "emptyAddressCustomer": {
+    "name": "Võ Thị Mỹ Ngọc",
+    "phoneNumber": "09328779",
+    "email": "MyNgoc@2207@gmail.com",
+    "gender": "Nữ",
+    "birthDay": "7/22/2003",
+    "address": {
+      "city": "",
+      "district": "",
+      "ward": ""
+    }
+  }
+}
