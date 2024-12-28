@@ -23,18 +23,6 @@
       "ward": "121 Nguyễn Thị Minh Khai"
     }
   },
-  "customer3": {
-    "name": "Võ Văn B",
-    "phoneNumber": "0932877894",
-    "email": "vovanb@gmail.com",
-    "gender": "Khác",
-    "birthDay": "9/13/2003",
-    "address": {
-      "city": "Thanh Bình",
-      "district": "Đồng Tháp",
-      "ward": "212 Nguyễn Thị Minh Khai"
-    }
-  },
   "invalidPhoneNumberCustomer": {
     "name": "Võ Thị Mỹ Ngọc",
     "phoneNumber": "09328779",

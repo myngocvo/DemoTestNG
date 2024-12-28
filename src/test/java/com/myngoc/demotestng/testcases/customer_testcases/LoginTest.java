@@ -16,7 +16,7 @@ public class LoginTest {
     private ExcelHelper excel;
 
     @BeforeClass
-    public void initialize() {
+    public void init() {
         excel = new ExcelHelper();
     }
 
@@ -28,11 +28,20 @@ public class LoginTest {
         PageFactory.initElements(driver, this);
     }
 
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
     @DataProvider(name = "dataLogin", parallel = false)
     public Object[][] dataLogin() throws Exception {
         excel.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
-        Object[][] data = new Object[6][3];
-        for (int i = 0; i < 6; i++) {
+        int row = excel.getMaxRow();
+        int col = excel.getMaxCol();
+        Object[][] data = new Object[row][col];
+        for (int i = 0; i < row; i++) {
             data[i][0] = excel.getCellStringData("username", i + 1);
             data[i][1] = excel.getCellStringData("password", i + 1);
             data[i][2] = excel.getCellBooleanData("status", i + 1);
@@ -47,13 +56,6 @@ public class LoginTest {
             System.out.println("Test Login with Username: " + username + ", Password: " + password + " Passed!");
         } else {
             System.out.println("Test Login with Username: " + username + ", Password: " + password + " Failed!");
-        }
-    }
-
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
         }
     }
 }

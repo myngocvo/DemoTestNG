@@ -27,8 +27,10 @@ public class LoginAdminTest extends BaseSetUp {
     @DataProvider(name = "dataLoginAdmin", parallel = true)
     public Object[][] dataLoginAdmin() throws Exception {
         excel.setExcelFile("src/test/resources/excelData/adminLoginData.xlsx", "adminLoginData");
-        Object[][] data = new Object[6][3];
-        for (int i = 0; i < 6; i++) {
+        int row = excel.getMaxRow();
+        int col = excel.getMaxCol();
+        Object[][] data = new Object[row][col];
+        for (int i = 0; i < row; i++) {
             data[i][0] = excel.getCellStringData("email", i + 1);
             data[i][1] = excel.getCellStringData("password", i + 1);
             data[i][2] = excel.getCellBooleanData("status", i + 1);

@@ -30,7 +30,6 @@ public class AddBookAdminTest {
         PageFactory.initElements(driver, this);
         excelHelper.setExcelFile("src/test/resources/excelData/adminLoginData.xlsx", "adminLoginData");
         loginAdminPage.loginAdmin(excelHelper.getCellStringData("email", 1), excelHelper.getCellStringData("password", 1));
-
     }
 
     @AfterMethod

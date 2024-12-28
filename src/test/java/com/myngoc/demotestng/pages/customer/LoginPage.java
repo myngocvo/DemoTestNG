@@ -9,8 +9,7 @@ import org.testng.Assert;
 
 public class LoginPage {
     private final WebDriver driver;
-    private HomePage homePage;
-    private ValidateHelper validateHelper;
+    private final ValidateHelper validateHelper;
 
     @FindBy(xpath = "//span[contains(text(),\"Tài Khoản\")]")
     private WebElement accountModule;
