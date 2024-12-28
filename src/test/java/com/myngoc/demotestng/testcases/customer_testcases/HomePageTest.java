@@ -1,6 +1,7 @@
 package com.myngoc.demotestng.testcases.customer_testcases;
 
 import com.myngoc.demotestng.common.BaseSetUp;
+import com.myngoc.demotestng.common.ExcelHelper;
 import com.myngoc.demotestng.common.ValidateHelper;
 import com.myngoc.demotestng.pages.customer.HomePage;
 import com.myngoc.demotestng.pages.customer.LoginPage;
@@ -18,6 +19,7 @@ public class HomePageTest {
     private HomePage homePage;
     private ValidateHelper validateHelper;
     private ShoppingCartPage shoppingCartPage;
+    private ExcelHelper excelHelper;
 
     @BeforeClass
     public void setUp() {
@@ -26,6 +28,7 @@ public class HomePageTest {
         loginPage = new LoginPage(driver);
         validateHelper = new ValidateHelper(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
+        excelHelper = new ExcelHelper();
         PageFactory.initElements(driver, this);
     }
 
@@ -37,17 +40,18 @@ public class HomePageTest {
     }
 
     @Test()
-    public void openShoppingCartPage_login() {
-        loginPage.login("0932877994", "MyNgoc@(2207)");
+    public void openShoppingCartPage_login() throws Exception {
+        excelHelper.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
+        loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
         validateHelper.waitForPageLoaded();
-        homePage.openShoppingCartPage();
-        homePage.openShoppingCartsuccessfully();
+        homePage.openShoppingCart();
+        homePage.verifyopenShoppingCart();
     }
 
     @Test()
     public void openShoppingCartPage_nologin() {
         validateHelper.waitForPageLoaded();
-        homePage.openShoppingCartPage();
+        homePage.openShoppingCart();
         String snackbarMessage = validateHelper.getSnackbarMessage();
         Assert.assertEquals(snackbarMessage, "Vui lòng đăng nhập để xem giỏ hàng", "Notification is incorrect!");
     }

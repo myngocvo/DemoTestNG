@@ -28,9 +28,9 @@ public class LoginTest {
         PageFactory.initElements(driver, this);
     }
 
-    @DataProvider(name = "dataLogin", parallel = true)
+    @DataProvider(name = "dataLogin", parallel = false)
     public Object[][] dataLogin() throws Exception {
-        excel.setExcelFile("src/test/resources/customerLoginData.xlsx", "dataLogin");
+        excel.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
         Object[][] data = new Object[6][3];
         for (int i = 0; i < 6; i++) {
             data[i][0] = excel.getCellStringData("username", i + 1);
@@ -39,18 +39,6 @@ public class LoginTest {
         }
         return data;
     }
-
-//    @DataProvider(name = "dataLogin")
-//    public Object[][] dataLogin() throws Exception {
-//        excel.setExcelFile("src/test/resources/customerLoginData.xlsx", "dataLogin");
-//        Object[][] data = new Object[6][3];
-//        for (int i = 0; i < 6; i++) {
-//            data[i][0] = excel.getCellStringData("username", i + 1);
-//            data[i][1] = excel.getCellStringData("password", i + 1);
-//            data[i][2] = excel.getCellBooleanData("status", i + 1);
-//        }
-//        return data;
-//    }
 
     @Test(dataProvider = "dataLogin")
     public void login(String username, String password, boolean expectedResult) {

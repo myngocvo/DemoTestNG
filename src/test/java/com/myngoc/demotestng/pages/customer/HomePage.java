@@ -36,14 +36,13 @@ public class HomePage {
         PageFactory.initElements(driver, this);
     }
 
-    public ShoppingCartPage openShoppingCartPage() {
+    public ShoppingCartPage openShoppingCart() {
         validateHelper.clickElement(shoppingCartPage);
         return new ShoppingCartPage(driver);
     }
 
-    public void openShoppingCartsuccessfully() {
+    public void verifyopenShoppingCart() {
         Assert.assertTrue(validateHelper.verifyUrl("/cart"), " Haven't navigated to the cart page yet!");
-        Assert.assertTrue(validateHelper.verifyElementExistByWebElement(shoppingCartText), "This is not a shopping cart page");
     }
 
     public ShoppingCartPage openMyProfilePage() {

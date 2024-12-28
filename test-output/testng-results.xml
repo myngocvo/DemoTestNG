@@ -1,34 +1,1614 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="6" passed="6" failed="0" skipped="0">
+<testng-results ignored="0" total="24" passed="6" failed="7" skipped="11">
     <reporter-output>
     </reporter-output>
-    <suite started-at="2024-11-18T15:21:23 ICT" name="Default Suite" finished-at="2024-11-18T15:21:48 ICT"
-           duration-ms="24363">
+    <suite started-at="2024-12-27T16:03:41 ICT" name="All Test Suite" finished-at="2024-12-27T16:04:30 ICT"
+           duration-ms="49511">
         <groups>
+            <group name="noLogin">
+                <method signature="AddBookInCart.addToCartWhenNotInCart_noLogin()[pri:3, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                        name="addToCartWhenNotInCart_noLogin"
+                        class="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart"/>
+            </group> <!-- noLogin -->
+            <group name="loginRequired">
+                <method signature="AddBookInCart.addToCartWhenNotInCart()[pri:1, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                        name="addToCartWhenNotInCart"
+                        class="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart"/>
+                <method signature="AddBookInCart.addToCartWhenAlreadyInCart()[pri:2, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                        name="addToCartWhenAlreadyInCart"
+                        class="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart"/>
+            </group> <!-- loginRequired -->
         </groups>
-        <test started-at="2024-11-18T15:21:23 ICT" name="DemoTestNG" finished-at="2024-11-18T15:21:48 ICT"
-              duration-ms="24363">
-            <class name="com.myngoc.demotestng.login.LoginPageTest">
+        <test started-at="2024-12-27T16:03:41 ICT" name="E:/20212025-IT/20242025-1/IntelliJ/DemoTestNG/src"
+              finished-at="2024-12-27T16:04:30 ICT" duration-ms="49511">
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest">
                 <test-method is-config="true"
-                             signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:23 ICT" name="setUpDriver"
-                             finished-at="2024-11-18T15:21:27 ICT" duration-ms="3956" status="PASS">
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:22 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="945" status="FAIL">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- setUpDriver -->
+                </test-method> <!-- setUp -->
                 <test-method
-                        signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                        started-at="2024-11-18T15:21:27 ICT" name="testLogin" data-provider="loginData"
-                        finished-at="2024-11-18T15:21:28 ICT" duration-ms="1033" status="PASS">
+                        signature="testConfirmPasswordIncorrectUpdatePassword()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testConfirmPasswordIncorrectUpdatePassword"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="0" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testConfirmPasswordIncorrectUpdatePassword -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="testCurrentPasswordIncorrectUpdatePassword()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testCurrentPasswordIncorrectUpdatePassword"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="0" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testCurrentPasswordIncorrectUpdatePassword -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="testEmptyUpdateAdress()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testEmptyUpdateAdress"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="0" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testEmptyUpdateAdress -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="testIncorrectPhoneNumberUpdateProfile()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testIncorrectPhoneNumberUpdateProfile"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="0" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testIncorrectPhoneNumberUpdateProfile -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="testUpdateAdress()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testUpdateAdress"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="0" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testUpdateAdress -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="testUpdatePassword()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testUpdatePassword"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="0" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testUpdatePassword -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method
+                        signature="testUpdateProfile()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                        started-at="2024-12-27T16:04:23 ICT" name="testUpdateProfile"
+                        finished-at="2024-12-27T16:04:23 ICT" duration-ms="2" status="SKIP">
+                    <exception class="java.lang.NullPointerException">
+                        <message>
+                            <![CDATA[Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "java.util.Map.get(Object)" is null
+at com.myngoc.demotestng.common.ExcelHelper.getCellStringData(ExcelHelper.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest.setUp(MyProfileTest.java:37)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.NullPointerException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testUpdateProfile -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest@be64738]"
+                             started-at="2024-12-27T16:04:23 ICT" name="tearDown" finished-at="2024-12-27T16:04:23 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+            </class> <!-- com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest -->
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.HomePageTest">
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                             started-at="2024-12-27T16:03:48 ICT" name="setUp" finished-at="2024-12-27T16:03:51 ICT"
+                             duration-ms="2976" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="openShoppingCartPage_login()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                        started-at="2024-12-27T16:03:51 ICT" name="openShoppingCartPage_login"
+                        finished-at="2024-12-27T16:03:53 ICT" duration-ms="2201" status="FAIL">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <mat-icon _ngcontent-ng-c2795982477="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">...</mat-icon> is not clickable at point (1368, 28). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ac973e4dce5e0e60ba0ce2956f0f9bf8, clickElement {id=f.1B8BE0D878DFEDEEEB2B0C833B73981A.d.68AC615DB4402B260023FCAD43614CF8.e.37}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51982}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51982/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (ac973e4dce5e0e60ba0ce2956f0f9bf8)] -> xpath: //mat-icon[normalize-space()="shopping_cart"]]
+Session ID: ac973e4dce5e0e60ba0ce2956f0f9bf8]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <mat-icon _ngcontent-ng-c2795982477="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">...</mat-icon> is not clickable at point (1368, 28). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ac973e4dce5e0e60ba0ce2956f0f9bf8, clickElement {id=f.1B8BE0D878DFEDEEEB2B0C833B73981A.d.68AC615DB4402B260023FCAD43614CF8.e.37}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51982}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51982/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (ac973e4dce5e0e60ba0ce2956f0f9bf8)] -> xpath: //mat-icon[normalize-space()="shopping_cart"]]
+Session ID: ac973e4dce5e0e60ba0ce2956f0f9bf8
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at openShoppingCart(HomePage.java:40)
+at com.myngoc.demotestng.testcases.customer_testcases.HomePageTest.openShoppingCartPage_login(HomePageTest.java:43)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- openShoppingCartPage_login -->
+                <test-method
+                        signature="openShoppingCartPage_nologin()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                        started-at="2024-12-27T16:03:53 ICT" name="openShoppingCartPage_nologin"
+                        finished-at="2024-12-27T16:03:54 ICT" duration-ms="1211" status="FAIL">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <mat-icon _ngcontent-ng-c2795982477="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">...</mat-icon> is not clickable at point (1368, 28). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ac973e4dce5e0e60ba0ce2956f0f9bf8, clickElement {id=f.1B8BE0D878DFEDEEEB2B0C833B73981A.d.68AC615DB4402B260023FCAD43614CF8.e.37}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51982}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51982/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (ac973e4dce5e0e60ba0ce2956f0f9bf8)] -> xpath: //mat-icon[normalize-space()="shopping_cart"]]
+Session ID: ac973e4dce5e0e60ba0ce2956f0f9bf8]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <mat-icon _ngcontent-ng-c2795982477="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">...</mat-icon> is not clickable at point (1368, 28). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [ac973e4dce5e0e60ba0ce2956f0f9bf8, clickElement {id=f.1B8BE0D878DFEDEEEB2B0C833B73981A.d.68AC615DB4402B260023FCAD43614CF8.e.37}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51982}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51982/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (ac973e4dce5e0e60ba0ce2956f0f9bf8)] -> xpath: //mat-icon[normalize-space()="shopping_cart"]]
+Session ID: ac973e4dce5e0e60ba0ce2956f0f9bf8
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at openShoppingCart(HomePage.java:40)
+at com.myngoc.demotestng.testcases.customer_testcases.HomePageTest.openShoppingCartPage_nologin(HomePageTest.java:50)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- openShoppingCartPage_nologin -->
+                <test-method
+                        signature="searchBookMatchingPartialResults()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                        started-at="2024-12-27T16:03:54 ICT" name="searchBookMatchingPartialResults"
+                        finished-at="2024-12-27T16:03:55 ICT" duration-ms="488" status="FAIL">
+                    <exception class="java.lang.AssertionError">
+                        <message>
+                            <![CDATA[Dropdown kết quả tìm kiếm không hiển thị. expected [true] but found [false]]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.AssertionError: Dropdown kết quả tìm kiếm không hiển thị. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.myngoc.demotestng.pages.customer.HomePage.searchBook(HomePage.java:80)
+at com.myngoc.demotestng.testcases.customer_testcases.HomePageTest.searchBookMatchingPartialResults(HomePageTest.java:64)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.AssertionError -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- searchBookMatchingPartialResults -->
+                <test-method
+                        signature="searchBookMatchingResults()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                        started-at="2024-12-27T16:03:55 ICT" name="searchBookMatchingResults"
+                        finished-at="2024-12-27T16:03:55 ICT" duration-ms="410" status="FAIL">
+                    <exception class="java.lang.AssertionError">
+                        <message>
+                            <![CDATA[Dropdown kết quả tìm kiếm không hiển thị. expected [true] but found [false]]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.AssertionError: Dropdown kết quả tìm kiếm không hiển thị. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.myngoc.demotestng.pages.customer.HomePage.searchBook(HomePage.java:80)
+at com.myngoc.demotestng.testcases.customer_testcases.HomePageTest.searchBookMatchingResults(HomePageTest.java:58)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.AssertionError -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- searchBookMatchingResults -->
+                <test-method
+                        signature="searchBookNoResults()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                        started-at="2024-12-27T16:03:55 ICT" name="searchBookNoResults"
+                        finished-at="2024-12-27T16:03:56 ICT" duration-ms="250" status="FAIL">
+                    <exception class="java.lang.AssertionError">
+                        <message>
+                            <![CDATA[Dropdown kết quả tìm kiếm không hiển thị. expected [true] but found [false]]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[java.lang.AssertionError: Dropdown kết quả tìm kiếm không hiển thị. expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertTrue(Assert.java:57)
+at com.myngoc.demotestng.pages.customer.HomePage.searchBook(HomePage.java:80)
+at com.myngoc.demotestng.testcases.customer_testcases.HomePageTest.searchBookNoResults(HomePageTest.java:70)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- java.lang.AssertionError -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- searchBookNoResults -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.HomePageTest@5ae50ce6]"
+                             started-at="2024-12-27T16:03:56 ICT" name="tearDown" finished-at="2024-12-27T16:03:56 ICT"
+                             duration-ms="250" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+            </class> <!-- com.myngoc.demotestng.testcases.customer_testcases.HomePageTest -->
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest">
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                             started-at="2024-12-27T16:04:23 ICT" name="setUp" finished-at="2024-12-27T16:04:27 ICT"
+                             duration-ms="3621" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method is-config="true"
+                             signature="login()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                             started-at="2024-12-27T16:04:27 ICT" name="login" finished-at="2024-12-27T16:04:28 ICT"
+                             duration-ms="968" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- login -->
+                <test-method
+                        signature="testDeleteSingleBookFromCart()[pri:1, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                        started-at="2024-12-27T16:04:28 ICT" name="testDeleteSingleBookFromCart"
+                        finished-at="2024-12-27T16:04:29 ICT" duration-ms="1196" status="FAIL">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <mat-icon _ngcontent-ng-c2795982477="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">...</mat-icon> is not clickable at point (1368, 28). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.38}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //mat-icon[normalize-space()="shopping_cart"]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <mat-icon _ngcontent-ng-c2795982477="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">...</mat-icon> is not clickable at point (1368, 28). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.38}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //mat-icon[normalize-space()="shopping_cart"]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at openShoppingCart(HomePage.java:40)
+at com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest.testDeleteSingleBookFromCart(ShoppingCartTest.java:57)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testDeleteSingleBookFromCart -->
+                <test-method is-config="true"
+                             signature="login()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                             started-at="2024-12-27T16:04:29 ICT" name="login" finished-at="2024-12-27T16:04:30 ICT"
+                             duration-ms="1209" status="FAIL">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.LoginPage.login(LoginPage.java:38)
+at com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest.login(ShoppingCartTest.java:45)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- login -->
+                <test-method
+                        signature="testDisplayEmptyShoppingCart()[pri:2, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                        started-at="2024-12-27T16:04:30 ICT" name="testDisplayEmptyShoppingCart"
+                        finished-at="2024-12-27T16:04:30 ICT" duration-ms="0" status="SKIP">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.LoginPage.login(LoginPage.java:38)
+at com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest.login(ShoppingCartTest.java:45)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testDisplayEmptyShoppingCart -->
+                <test-method
+                        signature="testDeleteAllBooksFromCart()[pri:3, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                        started-at="2024-12-27T16:04:30 ICT" name="testDeleteAllBooksFromCart"
+                        finished-at="2024-12-27T16:04:30 ICT" duration-ms="0" status="SKIP">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [85012d998d6b64127bbc36ce4110dd93, clickElement {id=f.3E79AB9F89F80903179767D3F56C0CDB.d.BD6C6A91226ADB530E5FCC3F5D93C30C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:52244}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52244/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (85012d998d6b64127bbc36ce4110dd93)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 85012d998d6b64127bbc36ce4110dd93
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.LoginPage.login(LoginPage.java:38)
+at com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest.login(ShoppingCartTest.java:45)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:600)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- testDeleteAllBooksFromCart -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                             started-at="2024-12-27T16:04:30 ICT" name="tearDown" finished-at="2024-12-27T16:04:30 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+                <test-method is-config="true"
+                             signature="login()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest@3ba9ad43]"
+                             started-at="2024-12-27T16:04:30 ICT" name="login" finished-at="2024-12-27T16:04:30 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- login -->
+            </class> <!-- com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest -->
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart">
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                             started-at="2024-12-27T16:03:41 ICT" name="setUp" finished-at="2024-12-27T16:03:45 ICT"
+                             duration-ms="3946" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method is-config="true"
+                             signature="loginBeforeTests()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                             started-at="2024-12-27T16:03:45 ICT" name="loginBeforeTests"
+                             finished-at="2024-12-27T16:03:46 ICT" duration-ms="835" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- loginBeforeTests -->
+                <test-method
+                        signature="addToCartWhenNotInCart()[pri:1, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                        started-at="2024-12-27T16:03:46 ICT" name="addToCartWhenNotInCart"
+                        finished-at="2024-12-27T16:03:47 ICT" duration-ms="1200" status="FAIL">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.HomePage.openMyProfilePage(HomePage.java:50)
+at com.myngoc.demotestng.pages.customer.MyProfilePage.isLoggedIn(MyProfilePage.java:79)
+at com.myngoc.demotestng.pages.customer.ProductDetailPage.verifyAddToCartMessage(ProductDetailPage.java:47)
+at com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart.addToCartWhenNotInCart(AddBookInCart.java:45)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- addToCartWhenNotInCart -->
+                <test-method is-config="true"
+                             signature="logoutAfterTests()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                             started-at="2024-12-27T16:03:47 ICT" name="logoutAfterTests"
+                             finished-at="2024-12-27T16:03:48 ICT" duration-ms="1171" status="FAIL">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.HomePage.openMyProfilePage(HomePage.java:50)
+at com.myngoc.demotestng.pages.customer.MyProfilePage.logout(MyProfilePage.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart.logoutAfterTests(AddBookInCart.java:40)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:802)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:778)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- logoutAfterTests -->
+                <test-method is-config="true"
+                             signature="loginBeforeTests()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                             started-at="2024-12-27T16:03:48 ICT" name="loginBeforeTests"
+                             finished-at="2024-12-27T16:03:48 ICT" duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- loginBeforeTests -->
+                <test-method
+                        signature="addToCartWhenAlreadyInCart()[pri:2, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                        started-at="2024-12-27T16:03:48 ICT" name="addToCartWhenAlreadyInCart"
+                        finished-at="2024-12-27T16:03:48 ICT" duration-ms="0" status="SKIP">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.HomePage.openMyProfilePage(HomePage.java:50)
+at com.myngoc.demotestng.pages.customer.MyProfilePage.logout(MyProfilePage.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart.logoutAfterTests(AddBookInCart.java:40)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:802)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:778)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- addToCartWhenAlreadyInCart -->
+                <test-method
+                        signature="addToCartWhenNotInCart_noLogin()[pri:3, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                        started-at="2024-12-27T16:03:48 ICT" name="addToCartWhenNotInCart_noLogin"
+                        finished-at="2024-12-27T16:03:48 ICT" duration-ms="0" status="SKIP">
+                    <exception class="org.openqa.selenium.ElementClickInterceptedException">
+                        <message>
+                            <![CDATA[element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b]]>
+                        </message>
+                        <full-stacktrace>
+                            <![CDATA[org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <span _ngcontent-ng-c2795982477="">...</span> is not clickable at point (1455, 52). Other element would receive the click: <div _ngcontent-ng-c2362164441="" class="modal-overlay">...</div>
+  (Session info: chrome=131.0.6778.205)
+Build info: version: '4.26.0', revision: '8ccf0219d7'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.12'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [696535247b021ccd03bcf311db9d416b, clickElement {id=f.39565FB31AFDB33B10073BC4805D72FF.d.7CC05978B0B8C3A4241587AA6D3F215C.e.14}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.205, chrome: {chromedriverVersion: 131.0.6778.204 (52183f9e99a..., userDataDir: C:\Users\myngoc.vo\AppData\...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:51948}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:51948/devtoo..., se:cdpVersion: 131.0.6778.205, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (696535247b021ccd03bcf311db9d416b)] -> xpath: //span[contains(text(),"Tài Khoản")]]
+Session ID: 696535247b021ccd03bcf311db9d416b
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy14.click(Unknown Source)
+at com.myngoc.demotestng.common.ValidateHelper.clickElement(ValidateHelper.java:59)
+at com.myngoc.demotestng.pages.customer.HomePage.openMyProfilePage(HomePage.java:50)
+at com.myngoc.demotestng.pages.customer.MyProfilePage.logout(MyProfilePage.java:84)
+at com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart.logoutAfterTests(AddBookInCart.java:40)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:833)
+at org.testng.internal.invokers.TestInvoker.runAfterConfigurations(TestInvoker.java:802)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:778)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at com.intellij.rt.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:65)
+at com.intellij.rt.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:105)
+]]>
+                        </full-stacktrace>
+                    </exception> <!-- org.openqa.selenium.ElementClickInterceptedException -->
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- addToCartWhenNotInCart_noLogin -->
+                <test-method is-config="true"
+                             signature="logoutAfterTests()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                             started-at="2024-12-27T16:03:48 ICT" name="logoutAfterTests"
+                             finished-at="2024-12-27T16:03:48 ICT" duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- logoutAfterTests -->
+                <test-method is-config="true"
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart@76908cc0]"
+                             started-at="2024-12-27T16:03:48 ICT" name="tearDown" finished-at="2024-12-27T16:03:48 ICT"
+                             duration-ms="0" status="SKIP">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- tearDown -->
+            </class> <!-- com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart -->
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.LoginTest">
+                <test-method is-config="true"
+                             signature="initialize()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:03:56 ICT" name="initialize"
+                             finished-at="2024-12-27T16:03:56 ICT" duration-ms="4" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- initialize -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:03:58 ICT" name="setUp" finished-at="2024-12-27T16:04:01 ICT"
+                             duration-ms="2961" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="login(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                        started-at="2024-12-27T16:04:01 ICT" name="login" data-provider="dataLogin"
+                        finished-at="2024-12-27T16:04:03 ICT" duration-ms="1881" status="PASS">
                     <params>
                         <param index="0">
                             <value>
-                                <![CDATA[0932877995]]>
+                                <![CDATA[0932877994]]>
                             </value>
                         </param>
                         <param index="1">
                             <value>
-                                <![CDATA[Ngoc@123]]>
+                                <![CDATA[MyNgoc@(1234)]]>
                             </value>
                         </param>
                         <param index="2">
@@ -39,34 +1619,27 @@
                     </params>
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- testLogin -->
+                </test-method> <!-- login -->
                 <test-method is-config="true"
-                             signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:28 ICT" name="tearDownDriver"
-                             finished-at="2024-11-18T15:21:29 ICT" duration-ms="229" status="PASS">
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:04:03 ICT" name="setUp" finished-at="2024-12-27T16:04:06 ICT"
+                             duration-ms="2937" status="PASS">
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- tearDownDriver -->
-                <test-method is-config="true"
-                             signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:29 ICT" name="setUpDriver"
-                             finished-at="2024-11-18T15:21:32 ICT" duration-ms="3051" status="PASS">
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- setUpDriver -->
+                </test-method> <!-- setUp -->
                 <test-method
-                        signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                        started-at="2024-11-18T15:21:32 ICT" name="testLogin" data-provider="loginData"
-                        finished-at="2024-11-18T15:21:33 ICT" duration-ms="911" status="PASS">
+                        signature="login(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                        started-at="2024-12-27T16:04:06 ICT" name="login" data-provider="dataLogin"
+                        finished-at="2024-12-27T16:04:07 ICT" duration-ms="1183" status="PASS">
                     <params>
                         <param index="0">
                             <value>
-                                <![CDATA[0932877995]]>
+                                <![CDATA[0932877994]]>
                             </value>
                         </param>
                         <param index="1">
                             <value>
-                                <![CDATA[Nnn@123]]>
+                                <![CDATA[wrongPassword1@]]>
                             </value>
                         </param>
                         <param index="2">
@@ -77,35 +1650,26 @@
                     </params>
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- testLogin -->
+                </test-method> <!-- login -->
                 <test-method is-config="true"
-                             signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:33 ICT" name="tearDownDriver"
-                             finished-at="2024-11-18T15:21:33 ICT" duration-ms="200" status="PASS">
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:04:07 ICT" name="setUp" finished-at="2024-12-27T16:04:10 ICT"
+                             duration-ms="2923" status="PASS">
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- tearDownDriver -->
-                <test-method is-config="true"
-                             signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:33 ICT" name="setUpDriver"
-                             finished-at="2024-11-18T15:21:36 ICT" duration-ms="2834" status="PASS">
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- setUpDriver -->
+                </test-method> <!-- setUp -->
                 <test-method
-                        signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                        started-at="2024-11-18T15:21:36 ICT" name="testLogin" data-provider="loginData"
-                        finished-at="2024-11-18T15:21:36 ICT" duration-ms="856" status="PASS">
+                        signature="login(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                        started-at="2024-12-27T16:04:10 ICT" name="login" data-provider="dataLogin"
+                        finished-at="2024-12-27T16:04:11 ICT" duration-ms="840" status="PASS">
                     <params>
                         <param index="0">
                             <value>
-                                <![CDATA[0384753419]]>
+                                <![CDATA[0000000000]]>
                             </value>
                         </param>
                         <param index="1">
-                            <value>
-                                <![CDATA[Ngoc@123]]>
-                            </value>
+                            <value is-null="true"/>
                         </param>
                         <param index="2">
                             <value>
@@ -115,29 +1679,51 @@
                     </params>
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- testLogin -->
+                </test-method> <!-- login -->
                 <test-method is-config="true"
-                             signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:36 ICT" name="tearDownDriver"
-                             finished-at="2024-11-18T15:21:37 ICT" duration-ms="212" status="PASS">
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:04:11 ICT" name="setUp" finished-at="2024-12-27T16:04:13 ICT"
+                             duration-ms="2944" status="PASS">
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- tearDownDriver -->
-                <test-method is-config="true"
-                             signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:37 ICT" name="setUpDriver"
-                             finished-at="2024-11-18T15:21:39 ICT" duration-ms="2797" status="PASS">
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- setUpDriver -->
+                </test-method> <!-- setUp -->
                 <test-method
-                        signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                        started-at="2024-11-18T15:21:39 ICT" name="testLogin" data-provider="loginData"
-                        finished-at="2024-11-18T15:21:40 ICT" duration-ms="880" status="PASS">
+                        signature="login(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                        started-at="2024-12-27T16:04:13 ICT" name="login" data-provider="dataLogin"
+                        finished-at="2024-12-27T16:04:14 ICT" duration-ms="803" status="PASS">
                     <params>
                         <param index="0">
                             <value>
-                                <![CDATA[0932877995]]>
+                                <![CDATA[]]>
+                            </value>
+                        </param>
+                        <param index="1">
+                            <value is-null="true"/>
+                        </param>
+                        <param index="2">
+                            <value>
+                                <![CDATA[false]]>
+                            </value>
+                        </param>
+                    </params>
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- login -->
+                <test-method is-config="true"
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:04:14 ICT" name="setUp" finished-at="2024-12-27T16:04:17 ICT"
+                             duration-ms="2946" status="PASS">
+                    <reporter-output>
+                    </reporter-output>
+                </test-method> <!-- setUp -->
+                <test-method
+                        signature="login(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                        started-at="2024-12-27T16:04:17 ICT" name="login" data-provider="dataLogin"
+                        finished-at="2024-12-27T16:04:18 ICT" duration-ms="1036" status="PASS">
+                    <params>
+                        <param index="0">
+                            <value>
+                                <![CDATA[0932877994]]>
                             </value>
                         </param>
                         <param index="1">
@@ -153,63 +1739,18 @@
                     </params>
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- testLogin -->
+                </test-method> <!-- login -->
                 <test-method is-config="true"
-                             signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:40 ICT" name="tearDownDriver"
-                             finished-at="2024-11-18T15:21:41 ICT" duration-ms="199" status="PASS">
+                             signature="setUp()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:04:18 ICT" name="setUp" finished-at="2024-12-27T16:04:21 ICT"
+                             duration-ms="2938" status="PASS">
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- tearDownDriver -->
-                <test-method is-config="true"
-                             signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:41 ICT" name="setUpDriver"
-                             finished-at="2024-11-18T15:21:41 ICT" duration-ms="853" status="PASS">
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- setUpDriver -->
+                </test-method> <!-- setUp -->
                 <test-method
-                        signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                        started-at="2024-11-18T15:21:41 ICT" name="testLogin" data-provider="loginData"
-                        finished-at="2024-11-18T15:21:44 ICT" duration-ms="2341" status="PASS">
-                    <params>
-                        <param index="0">
-                            <value>
-                                <![CDATA[]]>
-                            </value>
-                        </param>
-                        <param index="1">
-                            <value>
-                                <![CDATA[Ngoc@123]]>
-                            </value>
-                        </param>
-                        <param index="2">
-                            <value>
-                                <![CDATA[false]]>
-                            </value>
-                        </param>
-                    </params>
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- testLogin -->
-                <test-method is-config="true"
-                             signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:44 ICT" name="tearDownDriver"
-                             finished-at="2024-11-18T15:21:44 ICT" duration-ms="171" status="PASS">
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- tearDownDriver -->
-                <test-method is-config="true"
-                             signature="setUpDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:44 ICT" name="setUpDriver"
-                             finished-at="2024-11-18T15:21:47 ICT" duration-ms="2674" status="PASS">
-                    <reporter-output>
-                    </reporter-output>
-                </test-method> <!-- setUpDriver -->
-                <test-method
-                        signature="testLogin(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                        started-at="2024-11-18T15:21:47 ICT" name="testLogin" data-provider="loginData"
-                        finished-at="2024-11-18T15:21:47 ICT" duration-ms="874" status="PASS">
+                        signature="login(java.lang.String,java.lang.String,boolean)[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                        started-at="2024-12-27T16:04:21 ICT" name="login" data-provider="dataLogin"
+                        finished-at="2024-12-27T16:04:22 ICT" duration-ms="1019" status="PASS">
                     <params>
                         <param index="0">
                             <value>
@@ -229,15 +1770,15 @@
                     </params>
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- testLogin -->
+                </test-method> <!-- login -->
                 <test-method is-config="true"
-                             signature="tearDownDriver()[pri:0, instance:com.myngoc.demotestng.login.LoginPageTest@4e91d63f]"
-                             started-at="2024-11-18T15:21:47 ICT" name="tearDownDriver"
-                             finished-at="2024-11-18T15:21:48 ICT" duration-ms="187" status="PASS">
+                             signature="tearDown()[pri:0, instance:com.myngoc.demotestng.testcases.customer_testcases.LoginTest@6f96c77]"
+                             started-at="2024-12-27T16:04:22 ICT" name="tearDown" finished-at="2024-12-27T16:04:22 ICT"
+                             duration-ms="0" status="PASS">
                     <reporter-output>
                     </reporter-output>
-                </test-method> <!-- tearDownDriver -->
-            </class> <!-- com.myngoc.demotestng.login.LoginPageTest -->
-        </test> <!-- DemoTestNG -->
-    </suite> <!-- Default Suite -->
+                </test-method> <!-- tearDown -->
+            </class> <!-- com.myngoc.demotestng.testcases.customer_testcases.LoginTest -->
+        </test> <!-- E:/20212025-IT/20242025-1/IntelliJ/DemoTestNG/src -->
+    </suite> <!-- All Test Suite -->
 </testng-results>

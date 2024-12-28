@@ -94,8 +94,10 @@ public class MyProfilePage {
         validateHelper.setText(phoneNumberInput, phoneNumber);
         if (gender.equals("Nam")) {
             maleRadioBtn.click();
-        } else {
+        } else if (gender.equals("Nữ")) {
             femaleRadioBtn.click();
+        } else {
+            ortherGenderRadioBtn.click();
         }
         validateHelper.scrollToElement(saveProfileButton);
         validateHelper.setTextV2(birthdayInput, birthday);

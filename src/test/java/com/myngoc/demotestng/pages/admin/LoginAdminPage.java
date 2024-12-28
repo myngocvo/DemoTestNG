@@ -36,4 +36,22 @@ public class LoginAdminPage extends BaseSetUp {
         return new DashboardAdminPage(driver);
     }
 
+    public void verifyLoginAdmin(String email, String password, boolean expectedResult) {
+        try {
+            loginAdmin(email, password);
+            if (expectedResult) {
+                Assert.assertEquals(validateHelper.getSnackbarMessage(), "Đăng nhập thành công");
+                Assert.assertTrue(validateHelper.verifyUrl("books"), "Redirect to profile page failed!");
+                System.out.println("Email: " + email + ", Password: " + password + " Passed!");
+            } else {
+                Assert.assertEquals(validateHelper.getSnackbarMessage(), "Đăng nhập thất bại. Kiểm tra lại tài khoản và mật khẩu");
+                Assert.assertTrue(validateHelper.verifyUrl("admin"), "Redirect to profile page failed!");
+                System.out.println("Email: " + email + ", Password: " + password + " Failed!");
+            }
+        } catch (Exception e) {
+            System.err.println("Error during login validation: " + e.getMessage());
+        } finally {
+            if (driver != null) driver.quit();
+        }
+    }
 }

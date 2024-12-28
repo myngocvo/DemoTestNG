@@ -13,6 +13,7 @@ public class ShoppingCartPage {
     private WebDriver driver;
     private ValidateHelper validateHelper;
     private HomePage homePage;
+    private ProductDetailPage productDetailPage;
 
     @FindBy(xpath = "//img[@alt=\"No products\"]")
     private WebElement noProductImg;
@@ -20,16 +21,17 @@ public class ShoppingCartPage {
     private WebElement noProductText;
     @FindBy(xpath = "//button[contains(text(),\"MUA SẮM NGAY\")]")
     private WebElement noProductBtn;
-    //    @FindBy(css = "tbody tr")
-//    private List<WebElement> cartItems;
     private By cartItems = By.xpath("//*[contains(@class, 'book')]");
-
     @FindBy(xpath = "//tbody/tr[1]/td[7]/button[1]/mat-icon[1]")
     private WebElement deleteBtn;
+    @FindBy(xpath = "//span[normalize-space()=\"THANH TOÁN\"]")
+    private WebElement buyBooksButton;
 
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
         this.validateHelper = new ValidateHelper(driver);
+        this.homePage = new HomePage(driver);
+        this.productDetailPage = new ProductDetailPage(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -71,4 +73,9 @@ public class ShoppingCartPage {
             }
         }
     }
+
+    public void buyBooksFromCart(String bookName) {
+
+    }
+
 }

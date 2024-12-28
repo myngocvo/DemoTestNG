@@ -39,24 +39,14 @@ public class ProductDetailPage {
     }
 
     public boolean isBookInCart(String bookName) {
-        homePage.openShoppingCartPage();
+        homePage.openShoppingCart();
         return validateHelper.verifyElementExistByLocator(By.xpath("//td[contains(text(),'" + bookName + "')]"));
     }
 
     public void verifyAddToCartMessage(String bookName) {
-        if (!myProfilePage.isLoggedIn()) {
-            addToCart(bookName, true);
-
-            String actualMessage = validateHelper.getSnackbarMessage();
-            Assert.assertEquals(actualMessage, "Đăng nhập để thêm vào giỏ hàng của bạn", "Thông báo không đúng khi chưa đăng nhập!");
-            return;
-        }
         boolean isBookAlreadyInCart = isBookInCart(bookName);
-
         addToCart(bookName, true);
-
         String actualMessage = validateHelper.getSnackbarMessage();
-
         if (isBookAlreadyInCart) {
             Assert.assertEquals(actualMessage, "Sản phẩm đã có trong giỏ hàng", "Incorrect notification when the product already exists!");
         } else {

@@ -20,7 +20,7 @@ public class MyProfileTest {
     public LoginPage loginPage;
     public MyProfilePage myProfilePage;
     public ValidateHelper validateHelper;
-    private ExcelHelper excel;
+    private ExcelHelper excelHelper;
     private JsonHelper json;
 
     @BeforeMethod
@@ -30,11 +30,11 @@ public class MyProfileTest {
         loginPage = new LoginPage(driver);
         validateHelper = new ValidateHelper(driver);
         myProfilePage = new MyProfilePage(driver);
-        excel = new ExcelHelper();
+        excelHelper = new ExcelHelper();
         json = new JsonHelper();
         PageFactory.initElements(driver, this);
-        excel.setExcelFile("src/test/resources/loginData/customerLoginData.xlsx", "dataLogin");
-        loginPage.login(excel.getCellStringData("username", 1), excel.getCellStringData("password", 1));
+        excelHelper.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
+        loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
     }
 
     @AfterMethod
@@ -54,9 +54,9 @@ public class MyProfileTest {
     public void testUpdateProfile() throws InterruptedException {
         Customer cusInfor;
         if (myProfilePage.getCurrentUser().equals("Võ Thị Mỹ Ngọc")) {
-            cusInfor = json.getCustomer("src/test/resources/userData/customerData.json", "customer2");
+            cusInfor = json.getCustomer("src/test/resources/jsonData/customerData.json", "customer2");
         } else {
-            cusInfor = json.getCustomer("src/test/resources/userData/customerData.json", "customer1");
+            cusInfor = json.getCustomer("src/test/resources/jsonData/customerData.json", "customer1");
         }
 
         myProfilePage.updateProfile(cusInfor.getName(), cusInfor.getPhoneNumber(), cusInfor.getEmail(), cusInfor.getGender(), cusInfor.getDateOfBirth());
@@ -68,7 +68,7 @@ public class MyProfileTest {
 
     @Test
     public void testIncorrectPhoneNumberUpdateProfile() throws InterruptedException {
-        Customer cusInfor = json.getCustomer("src/test/resources/userData/customerData.json", "invalidPhoneNumberCustomer");
+        Customer cusInfor = json.getCustomer("src/test/resources/jsonData/customerData.json", "invalidPhoneNumberCustomer");
         myProfilePage.updateProfile(cusInfor.getName(), cusInfor.getPhoneNumber(), cusInfor.getEmail(), cusInfor.getGender(), cusInfor.getDateOfBirth());
         Assert.assertEquals(validateHelper.getSnackbarMessage(), "Số điện thoại không hợp lệ", "Notification is incorrect");
         Thread.sleep(4000);
@@ -79,9 +79,9 @@ public class MyProfileTest {
     public void testUpdateAdress() throws InterruptedException {
         Address address;
         if (myProfilePage.getCurrentUser().equals("Võ Thị Mỹ Ngọc")) {
-            address = json.getAddress("src/test/resources/userData/customerData.json", "customer2");
+            address = json.getAddress("src/test/resources/jsonData/customerData.json", "customer2");
         } else {
-            address = json.getAddress("src/test/resources/userData/customerData.json", "customer1");
+            address = json.getAddress("src/test/resources/jsonData/customerData.json", "customer1");
         }
 
         myProfilePage.updateAdress(address.getCity(), address.getDistrict(), address.getWard());
@@ -92,7 +92,7 @@ public class MyProfileTest {
 
     @Test
     public void testEmptyUpdateAdress() throws InterruptedException {
-        Address address = json.getAddress("src/test/resources/userData/customerData.json", "emptyAddressCustomer");
+        Address address = json.getAddress("src/test/resources/jsonData/customerData.json", "emptyAddressCustomer");
 
         myProfilePage.updateAdress(address.getCity(), address.getDistrict(), address.getWard());
         Assert.assertEquals(validateHelper.getSnackbarMessage(), "Vui lòng nhập đầy đủ thông tin!", "Notification is incorrect");
@@ -101,14 +101,14 @@ public class MyProfileTest {
 
     @Test
     public void testUpdatePassword() throws Exception {
-        String currentPassword = excel.getCellStringData("password", 1);
+        String currentPassword = excelHelper.getCellStringData("password", 1);
         String newPassword1 = "MyNgoc@(2207)";
         String newPassword2 = "MyNgoc@(1234)";
         if (currentPassword.equals(newPassword1)) {
-            excel.setCellDataByColumn("password", 1, newPassword2);
+            excelHelper.setCellDataByColumn("password", 1, newPassword2);
             myProfilePage.updatePassword(currentPassword, newPassword2, newPassword2);
         } else {
-            excel.setCellDataByColumn("password", 1, newPassword1);
+            excelHelper.setCellDataByColumn("password", 1, newPassword1);
             myProfilePage.updatePassword(currentPassword, newPassword1, newPassword1);
         }
         Assert.assertEquals(validateHelper.getSnackbarMessage(), "Thay đổi mật khẩu thành công", "Notification is incorrect");
@@ -127,7 +127,7 @@ public class MyProfileTest {
 
     @Test
     public void testConfirmPasswordIncorrectUpdatePassword() throws Exception {
-        String currentPassword = excel.getCellStringData("password", 1);
+        String currentPassword = excelHelper.getCellStringData("password", 1);
         String newPassword = "MyNgoc@22072003";
         String confirmNewPassword = "MyNgoc@2207200345";
 

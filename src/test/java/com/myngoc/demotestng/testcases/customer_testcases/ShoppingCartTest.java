@@ -1,19 +1,13 @@
 package com.myngoc.demotestng.testcases.customer_testcases;
 
 import com.myngoc.demotestng.common.BaseSetUp;
+import com.myngoc.demotestng.common.ExcelHelper;
 import com.myngoc.demotestng.common.ValidateHelper;
-import com.myngoc.demotestng.pages.customer.HomePage;
-import com.myngoc.demotestng.pages.customer.LoginPage;
-import com.myngoc.demotestng.pages.customer.ProductDetailPage;
-import com.myngoc.demotestng.pages.customer.ShoppingCartPage;
+import com.myngoc.demotestng.pages.customer.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.ITestContext;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class ShoppingCartTest extends BaseSetUp {
     private WebDriver driver;
@@ -21,6 +15,8 @@ public class ShoppingCartTest extends BaseSetUp {
     private HomePage homePage;
     private ShoppingCartPage shoppingCartPage;
     private ProductDetailPage productDetailPage;
+    private ExcelHelper excelHelper;
+    private MyProfilePage myProfilePage;
 
     @BeforeClass
     public void setUp() {
@@ -30,6 +26,8 @@ public class ShoppingCartTest extends BaseSetUp {
         ValidateHelper validateHelper = new ValidateHelper(driver);
         shoppingCartPage = new ShoppingCartPage(driver);
         productDetailPage = new ProductDetailPage(driver);
+        excelHelper = new ExcelHelper();
+        myProfilePage = new MyProfilePage(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -41,29 +39,38 @@ public class ShoppingCartTest extends BaseSetUp {
     }
 
     @BeforeMethod
-    public void login() {
-        loginPage.login("0932877995", "MyNgoc@(2207)");
+    public void login() throws Exception {
+        excelHelper.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
+        loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
     }
 
-    @Test(priority = 2)
+    @AfterMethod
+    public void logout() throws Exception {
+        myProfilePage.logout();
+    }
+
+    @Test
     public void testDisplayEmptyShoppingCart() {
-        homePage.openShoppingCartPage();
+        homePage.openShoppingCart();
+        shoppingCartPage.deleteAllBooksFromCart();
         shoppingCartPage.checkDisplayEmptyShoppingCart();
+        System.out.println("Test Display Empty ShoppingCart passed");
     }
 
-    @Test(priority = 1)
+    @Test
     public void testDeleteSingleBookFromCart() {
         String bookName = "Tuyển Tập Truyện Ngắn Hay Nhất Của Nguyễn Minh Châu";
-        homePage.openShoppingCartPage();
+        homePage.openShoppingCart();
         if (!productDetailPage.isBookInCart(bookName)) {
             productDetailPage.addToCart(bookName, true);
         }
-        homePage.openShoppingCartPage();
+        homePage.openShoppingCart();
         boolean isDeleted = shoppingCartPage.deleteBookFromCart(bookName);
         Assert.assertTrue(isDeleted, "Sản phẩm không được xóa khỏi giỏ hàng.");
+        System.out.println("Test Delete A Book From Cart passed");
     }
 
-    @Test(priority = 3)
+    @Test
     public void testDeleteAllBooksFromCart() throws InterruptedException {
         String[] books = {
                 "CÁCH NỀN KINH TẾ VẬN HÀNH Niềm tin, sự sụp đổ và những lời tiên tri tự đúng",
@@ -74,8 +81,9 @@ public class ShoppingCartTest extends BaseSetUp {
         for (String book : books) {
             productDetailPage.addToCart(book, true);
         }
-        homePage.openShoppingCartPage();
+        homePage.openShoppingCart();
         shoppingCartPage.deleteAllBooksFromCart();
         shoppingCartPage.checkDisplayEmptyShoppingCart();
+        System.out.println("Test Delete All Books From Cart passed");
     }
 }

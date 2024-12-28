@@ -1,0 +1,22 @@
+{
+  "book1": {
+    "bookName": "Hãy hành động",
+    "publishYear": "2022",
+    "author": "Nam Cao",
+    "category": "Văn học",
+    "supplier": "Minh Long",
+    "price": "100000",
+    "quantity": "100",
+    "pricePrecent": "0",
+    "pageNumber": "100",
+    "dimention": "12x24",
+    "status": "Ngưng bán",
+    "description": "Hãy hành động là một cuốn sách truyền cảm hứng",
+    "image": {
+      "image1": "E:\\20212025-IT\\20242025-1\\IntelliJ\\DemoTestNG\\src\\test\\resources\\bookImage\\hayhanhdong\\hayhanhdong1.jpg",
+      "image2": "E:\\20212025-IT\\20242025-1\\IntelliJ\\DemoTestNG\\src\\test\\resources\\bookImage\\hayhanhdong\\hayhanhdong2.jpg",
+      "image3": "E:\\20212025-IT\\20242025-1\\IntelliJ\\DemoTestNG\\src\\test\\resources\\bookImage\\hayhanhdong\\hayhanhdong3.jpg",
+      "image4": "E:\\20212025-IT\\20242025-1\\IntelliJ\\DemoTestNG\\src\\test\\resources\\bookImage\\hayhanhdong\\hayhanhdong4.jpg"
+    }
+  }
+}

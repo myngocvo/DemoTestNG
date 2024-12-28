@@ -1,6 +1,7 @@
 package com.myngoc.demotestng.testcases.customer_testcases;
 
 import com.myngoc.demotestng.common.BaseSetUp;
+import com.myngoc.demotestng.common.ExcelHelper;
 import com.myngoc.demotestng.common.ValidateHelper;
 import com.myngoc.demotestng.pages.customer.*;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +14,8 @@ public class AddBookInCart {
     private ProductDetailPage productDetailPage;
     private LoginPage loginPage;
     private MyProfilePage myProfilePage;
+    private ExcelHelper excelHelper;
+    private ShoppingCartPage shoppingCartPage;
 
     @BeforeClass
     public void setUp() {
@@ -20,6 +23,8 @@ public class AddBookInCart {
         productDetailPage = new ProductDetailPage(driver);
         loginPage = new LoginPage(driver);
         myProfilePage = new MyProfilePage(driver);
+        excelHelper = new ExcelHelper();
+        shoppingCartPage = new ShoppingCartPage(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -31,8 +36,9 @@ public class AddBookInCart {
     }
 
     @BeforeMethod(onlyForGroups = "loginRequired")
-    public void loginBeforeTests() {
-        loginPage.login("0932877994", "MyNgoc@(2207)");
+    public void loginBeforeTests() throws Exception {
+        excelHelper.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
+        loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
     }
 
     @AfterMethod(onlyForGroups = "loginRequired")
@@ -43,17 +49,19 @@ public class AddBookInCart {
     @Test(groups = "loginRequired", priority = 1)
     public void addToCartWhenNotInCart() {
         productDetailPage.verifyAddToCartMessage("Tuyển Tập Truyện Ngắn Hay Nhất Của Nguyễn Minh Châu");
+        shoppingCartPage.deleteAllBooksFromCart();
     }
 
     @Test(groups = "loginRequired", priority = 2)
     public void addToCartWhenAlreadyInCart() {
-        //loginPage.login("0932877995", "MyNgoc@(2207)");
         productDetailPage.verifyAddToCartMessage("Nhật Ký Trong Tù");
         productDetailPage.verifyAddToCartMessage("Nhật Ký Trong Tù");
+        shoppingCartPage.deleteAllBooksFromCart();
     }
 
     @Test(groups = "noLogin", priority = 3)
     public void addToCartWhenNotInCart_noLogin() {
         productDetailPage.verifyAddToCartMessage_nologin("Nhật Ký Trong Tù");
+        shoppingCartPage.deleteAllBooksFromCart();
     }
 }

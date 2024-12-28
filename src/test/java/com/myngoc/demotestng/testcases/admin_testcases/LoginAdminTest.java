@@ -1,39 +1,50 @@
 package com.myngoc.demotestng.testcases.admin_testcases;
 
 import com.myngoc.demotestng.common.BaseSetUp;
-import com.myngoc.demotestng.common.ValidateHelper;
-import com.myngoc.demotestng.pages.admin.DashboardAdminPage;
+import com.myngoc.demotestng.common.ExcelHelper;
 import com.myngoc.demotestng.pages.admin.LoginAdminPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 public class LoginAdminTest extends BaseSetUp {
     private WebDriver driver;
     private LoginAdminPage loginAdminPage;
-    private DashboardAdminPage dashboardAdminPage;
-    private ValidateHelper validateHelper;
+    private ExcelHelper excel;
 
     @BeforeClass
+    public void initialize() {
+        excel = new ExcelHelper();
+    }
+
+    @BeforeMethod
     public void setUp() {
-        driver = getDriver();
-        dashboardAdminPage = new DashboardAdminPage(driver);
+        driver = new BaseSetUp().setupDriver("chrome", "admin");
         loginAdminPage = new LoginAdminPage(driver);
-        validateHelper = new ValidateHelper(driver);
         PageFactory.initElements(driver, this);
     }
 
-    @Test
-    public void loginAdmin() throws InterruptedException {
-        dashboardAdminPage = loginAdminPage.loginAdmin("vtmn22070312@gmail.com", "Ngoc@123");
-        if ("Đăng nhập thành công".equals(validateHelper.getSnackbarMessage())) {
-            Assert.assertTrue(validateHelper.verifyUrl("books"), "Redirect to profile page failed!");
-            System.out.println("Login succeeded!");
-        } else {
-            Assert.fail("Login failed! Snackbar message: " + validateHelper.getSnackbarMessage());
+    @DataProvider(name = "dataLoginAdmin", parallel = true)
+    public Object[][] dataLoginAdmin() throws Exception {
+        excel.setExcelFile("src/test/resources/excelData/adminLoginData.xlsx", "adminLoginData");
+        Object[][] data = new Object[6][3];
+        for (int i = 0; i < 6; i++) {
+            data[i][0] = excel.getCellStringData("email", i + 1);
+            data[i][1] = excel.getCellStringData("password", i + 1);
+            data[i][2] = excel.getCellBooleanData("status", i + 1);
         }
+        return data;
     }
 
+    @Test(dataProvider = "dataLoginAdmin")
+    public void loginAdmin(String email, String password, boolean expectedResult) {
+        loginAdminPage.verifyLoginAdmin(email, password, expectedResult);
+    }
+
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 }
