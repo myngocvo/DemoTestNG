@@ -5,14 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
 
 import java.time.Duration;
 
 public class BaseSetUp {
     private static final String DEFAULT_URL = "http://localhost:4200";
     private static final String ADMIN_URL = "http://localhost:4200/admin";
-    static String driverPath = "src\\test\\resources\\drivers\\";
     public WebDriver driver;
 
     public WebDriver getDriver() {
@@ -71,12 +69,4 @@ public class BaseSetUp {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         return driver;
     }
-
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-
 }

@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-
-    <test verbose="2" preserve-order="true" name="E:/20212025-IT/20242025-1/IntelliJ/DemoTestNG/src">
-        <packages>
-            <package name="com.myngoc.demotestng.testcases.customer_testcases"/>
-            <package name="com.myngoc.demotestng.testcases.admin_testcases"/>
-        </packages>
+    <test verbose="2" preserve-order="true" name="E:/20212025-IT/20242025-1/IntelliJ/DemoTestNG">
+        <classes>
+            <class name="com.myngoc.demotestng.testcases.admin_testcases.AddBookAdminTest">
+                <methods>
+                    <include name="addBook"/>
+                    <include name="deleteBook"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.admin_testcases.LoginAdminTest">
+                <methods>
+                    <include name="loginAdmin"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart">
+                <methods>
+                    <include name="addToCartWhenNotInCart"/>
+                    <include name="addToCartWhenAlreadyInCart"/>
+                    <include name="addToCartWhenNotInCart_noLogin"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.HomePageTest">
+                <methods>
+                    <include name="openShoppingCartPage_login"/>
+                    <include name="openShoppingCartPage_nologin"/>
+                    <include name="searchBookMatchingResults"/>
+                    <include name="searchBookMatchingPartialResults"/>
+                    <include name="searchBookNoResults"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.LoginTest">
+                <methods>
+                    <include name="login"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.MyProfileTest">
+                <methods>
+                    <include name="testUpdateProfile"/>
+                    <include name="testIncorrectPhoneNumberUpdateProfile"/>
+                    <include name="testUpdateAdress"/>
+                    <include name="testEmptyUpdateAdress"/>
+                    <include name="testUpdatePassword"/>
+                    <include name="testCurrentPasswordIncorrectUpdatePassword"/>
+                    <include name="testConfirmPasswordIncorrectUpdatePassword"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.RegisterTest">
+                <methods>
+                    <include name="testRegister"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.ShoppingCartTest">
+                <methods>
+                    <include name="testDisplayEmptyShoppingCart"/>
+                    <include name="testDeleteSingleBookFromCart"/>
+                    <include name="testDeleteAllBooksFromCart"/>
+                </methods>
+            </class>
+        </classes>
     </test>
 </suite>

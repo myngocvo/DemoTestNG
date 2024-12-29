@@ -124,7 +124,7 @@ public class ValidateHelper {
     }
 
     public String getSnackbarMessage() throws InterruptedException {
-        Thread.sleep(200);
+        Thread.sleep(400);
         if (driver.findElement(snackbarLocator).isDisplayed()) {
             return driver.findElement(snackbarLocator).getText();
         }

@@ -24,7 +24,7 @@ public class LoginAdminTest extends BaseSetUp {
         PageFactory.initElements(driver, this);
     }
 
-    @DataProvider(name = "dataLoginAdmin", parallel = false)
+    @DataProvider(name = "dataLoginAdmin", parallel = true)
     public Object[][] dataLoginAdmin() throws Exception {
         excel.setExcelFile("src/test/resources/excelData/adminLoginData.xlsx", "adminLoginData");
         int row = excel.getMaxRow();
