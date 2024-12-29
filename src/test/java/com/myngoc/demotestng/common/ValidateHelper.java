@@ -14,13 +14,12 @@ import java.util.List;
 public class ValidateHelper {
 
     private final WebDriver driver;
+    By snackbarLocator = By.cssSelector("simple-snack-bar .mat-mdc-snack-bar-label");
     private WebDriverWait wait;
     private int timeoutWaitForPageLoaded = 30;
     private Actions actions;
     private Select select;
     private JavascriptExecutor js;
-
-    By snackbarLocator = By.cssSelector("simple-snack-bar .mat-mdc-snack-bar-label");
 
     public ValidateHelper(WebDriver driver) {
         this.driver = driver;
@@ -124,24 +123,15 @@ public class ValidateHelper {
         return !listElement.isEmpty();
     }
 
-    public String getSnackbarMessage() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(snackbarLocator));
-        WebElement snackbarElement = driver.findElement(snackbarLocator);
-        return snackbarElement.getText();
-    }
-
-    public boolean isSnackbarDisplayed(String expectedMessage) {
-        try {
-            String actualMessage = getSnackbarMessage();
-            return actualMessage.equals(expectedMessage);
-        } catch (Exception e) {
-            System.err.println("Snackbar not displayed: " + e.getMessage());
-            return false;
+    public String getSnackbarMessage() throws InterruptedException {
+        Thread.sleep(200);
+        if (driver.findElement(snackbarLocator).isDisplayed()) {
+            return driver.findElement(snackbarLocator).getText();
         }
+        return null;
     }
 
     public void scrollToElement(WebElement element) {
-//        js.executeScript("arguments[0].scrollIntoView(true);", element);
         new Actions(driver)
                 .scrollToElement(element)
                 .perform();

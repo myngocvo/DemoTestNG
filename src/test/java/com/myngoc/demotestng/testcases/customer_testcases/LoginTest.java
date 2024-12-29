@@ -10,9 +10,9 @@ import org.testng.annotations.*;
 
 
 public class LoginTest {
-    private WebDriver driver;
     public HomePage homePage;
     public LoginPage loginPage;
+    private WebDriver driver;
     private ExcelHelper excel;
 
     @BeforeClass

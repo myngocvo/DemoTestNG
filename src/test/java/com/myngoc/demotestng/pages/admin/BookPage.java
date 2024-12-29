@@ -2,7 +2,6 @@ package com.myngoc.demotestng.pages.admin;
 
 import com.myngoc.demotestng.Image;
 import com.myngoc.demotestng.common.ValidateHelper;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -107,7 +106,6 @@ public class BookPage {
     public void deleteBook(String bookName) throws Exception {
         searchBook(bookName);
         String actualSearchResult = bookSearchResult.getText();
-        System.out.println(actualSearchResult);
         if (actualSearchResult.contains(bookName)) {
             ((JavascriptExecutor) driver).executeScript("arguments[0].click();", deleteButton);
             validateHelper.clickElement(confirmDelete);

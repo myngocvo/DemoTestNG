@@ -5,12 +5,11 @@ import com.myngoc.demotestng.common.ExcelHelper;
 import com.myngoc.demotestng.common.ValidateHelper;
 import com.myngoc.demotestng.pages.customer.HomePage;
 import com.myngoc.demotestng.pages.customer.LoginPage;
-import com.myngoc.demotestng.pages.customer.ShoppingCartPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class HomePageTest {
@@ -18,21 +17,19 @@ public class HomePageTest {
     private LoginPage loginPage;
     private HomePage homePage;
     private ValidateHelper validateHelper;
-    private ShoppingCartPage shoppingCartPage;
     private ExcelHelper excelHelper;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         driver = new BaseSetUp().setupDriver("chrome", "customer");
         homePage = new HomePage(driver);
         loginPage = new LoginPage(driver);
         validateHelper = new ValidateHelper(driver);
-        shoppingCartPage = new ShoppingCartPage(driver);
         excelHelper = new ExcelHelper();
         PageFactory.initElements(driver, this);
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         if (driver != null) {
             driver.quit();
@@ -49,7 +46,7 @@ public class HomePageTest {
     }
 
     @Test()
-    public void openShoppingCartPage_nologin() {
+    public void openShoppingCartPage_nologin() throws InterruptedException {
         validateHelper.waitForPageLoaded();
         homePage.openShoppingCart();
         String snackbarMessage = validateHelper.getSnackbarMessage();

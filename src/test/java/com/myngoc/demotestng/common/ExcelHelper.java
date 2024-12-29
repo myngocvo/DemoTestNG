@@ -1,9 +1,11 @@
 package com.myngoc.demotestng.common;
 
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -12,11 +14,10 @@ import java.util.logging.Logger;
 public class ExcelHelper {
 
     private static final Logger LOGGER = Logger.getLogger(ExcelHelper.class.getName());
-
+    private final Map<String, Integer> columns = new HashMap<>();
     private Workbook workbook;
     private Sheet sheet;
     private String excelFilePath;
-    private final Map<String, Integer> columns = new HashMap<>();
 
     public void setExcelFile(String excelPath, String sheetName) {
         try (FileInputStream fis = new FileInputStream(new File(excelPath))) {
@@ -54,40 +55,111 @@ public class ExcelHelper {
         return (firstRow != null) ? firstRow.getPhysicalNumberOfCells() : 0;
     }
 
-    public String getCellData(int rownum, int colnum) {
+    public String getCellStringData(String columnName, int rownum) {
         try {
+            if (sheet == null || columns == null) {
+                LOGGER.warning("Sheet or column mapping is null.");
+                return "";
+            }
+
+            Integer colIndex = columns.get(columnName);
+            if (colIndex == null) {
+                LOGGER.warning("Column name not found: " + columnName);
+                return "";
+            }
+
+            if (rownum < 0 || rownum >= sheet.getPhysicalNumberOfRows()) {
+                LOGGER.warning("Invalid row number: " + rownum);
+                return "";
+            }
+
             Row row = sheet.getRow(rownum);
             if (row == null) return "";
 
-            Cell cell = row.getCell(colnum);
+            if (colIndex < 0 || colIndex >= row.getLastCellNum()) {
+                LOGGER.warning("Invalid column number: " + colIndex);
+                return "";
+            }
+
+            Cell cell = row.getCell(colIndex);
             if (cell == null) return "";
 
-            return switch (cell.getCellType()) {
-                case STRING -> cell.getStringCellValue();
-                case NUMERIC ->
-                        DateUtil.isCellDateFormatted(cell) ? cell.getDateCellValue().toString() : String.valueOf((long) cell.getNumericCellValue());
-                case BOOLEAN -> Boolean.toString(cell.getBooleanCellValue());
-                case BLANK -> "";
-                default -> "";
-            };
+            switch (cell.getCellType()) {
+                case STRING:
+                    return cell.getStringCellValue();
+                case BOOLEAN:
+                    return Boolean.toString(cell.getBooleanCellValue());
+                case NUMERIC:
+                    return DateUtil.isCellDateFormatted(cell) ? cell.getDateCellValue().toString() : String.valueOf(cell.getNumericCellValue());
+                default:
+                    return "";
+            }
         } catch (Exception e) {
             LOGGER.log(Level.WARNING, "Error getting cell data: {0}", e.getMessage());
             return "";
         }
     }
 
-    public String getCellStringData(String columnName, int rownum) {
-        Integer colIndex = columns.get(columnName);
-        if (colIndex == null) {
-            LOGGER.warning("Column name not found: " + columnName);
-            return "";
+    public double getCellNumericData(String columnName, int rownum) {
+        try {
+            if (sheet == null || columns == null) {
+                LOGGER.warning("Sheet or column mapping is null.");
+                return 0.0;
+            }
+
+            Integer colIndex = columns.get(columnName);
+            if (colIndex == null) {
+                LOGGER.warning("Column name not found: " + columnName);
+                return 0.0;
+            }
+
+            if (rownum < 0 || rownum >= sheet.getPhysicalNumberOfRows()) {
+                LOGGER.warning("Invalid row number: " + rownum);
+                return 0.0;
+            }
+
+            Row row = sheet.getRow(rownum);
+            if (row == null) return 0.0;
+
+            if (colIndex < 0 || colIndex >= row.getLastCellNum()) {
+                LOGGER.warning("Invalid column number: " + colIndex);
+                return 0.0;
+            }
+
+            Cell cell = row.getCell(colIndex);
+            if (cell == null) return 0.0;
+
+            if (cell.getCellType() == CellType.NUMERIC) {
+                return cell.getNumericCellValue();
+            } else {
+                LOGGER.warning(String.format("Cell at row %d, column %s is not numeric.", rownum, columnName));
+                return 0.0;
+            }
+        } catch (Exception e) {
+            LOGGER.log(Level.WARNING, "Error getting numeric cell data: {0}", e.getMessage());
+            return 0.0;
         }
-        return getCellData(rownum, colIndex);
     }
 
     public boolean getCellBooleanData(String columnName, int rownum) {
-        return Boolean.parseBoolean(getCellStringData(columnName, rownum));
+        try {
+            String cellValue = getCellStringData(columnName, rownum).trim().toLowerCase();
+
+            if ("true".equals(cellValue) || "1".equals(cellValue) || "yes".equals(cellValue)) {
+                return true;
+            }
+            if ("false".equals(cellValue) || "0".equals(cellValue) || "no".equals(cellValue)) {
+                return false;
+            }
+
+            LOGGER.warning(String.format("Invalid boolean value at row %d, column %s: %s", rownum, columnName, cellValue));
+            return false;
+        } catch (Exception e) {
+            LOGGER.log(Level.WARNING, "Error getting boolean cell data: {0}", e.getMessage());
+            throw new RuntimeException("Failed to get boolean value from cell", e);
+        }
     }
+
 
     public void setCellData(String data, int rownum, int colnum) {
         try {

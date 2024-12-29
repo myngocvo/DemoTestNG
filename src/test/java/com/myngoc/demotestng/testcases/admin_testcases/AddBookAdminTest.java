@@ -52,5 +52,6 @@ public class AddBookAdminTest {
     public void deleteBook() throws Exception {
         Book book = jsonHelper.getBook("src/test/resources/jsonData/bookData.json", "book1");
         bookPage.deleteBook(book.getBookName());
+        System.out.println("Test delete book successful");
     }
 }

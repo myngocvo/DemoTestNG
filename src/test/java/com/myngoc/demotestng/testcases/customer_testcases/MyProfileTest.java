@@ -12,14 +12,16 @@ import com.myngoc.demotestng.pages.customer.MyProfilePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class MyProfileTest {
-    private WebDriver driver;
     public HomePage homePage;
     public LoginPage loginPage;
     public MyProfilePage myProfilePage;
     public ValidateHelper validateHelper;
+    private WebDriver driver;
     private ExcelHelper excelHelper;
     private JsonHelper json;
 
@@ -43,12 +45,6 @@ public class MyProfileTest {
             driver.quit();
         }
     }
-
-//    @BeforeMethod()
-//    public void login() throws Exception {
-//        excel.setExcelFile("src/test/resources/loginData/customerLoginData.xlsx", "dataLogin");
-//        loginPage.login(excel.getCellStringData("username", 1), excel.getCellStringData("password", 1));
-//    }
 
     @Test
     public void testUpdateProfile() throws InterruptedException {

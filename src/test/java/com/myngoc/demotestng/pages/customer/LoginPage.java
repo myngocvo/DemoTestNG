@@ -42,7 +42,7 @@ public class LoginPage {
         return new MyProfilePage(driver);
     }
 
-    private boolean isSnackbarMessageCorrect(String expectedMessage) {
+    private boolean isSnackbarMessageCorrect(String expectedMessage) throws InterruptedException {
         String actualMessage = validateHelper.getSnackbarMessage();
         return expectedMessage.equals(actualMessage);
     }

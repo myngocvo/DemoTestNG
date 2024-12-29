@@ -10,10 +10,10 @@ import org.testng.annotations.AfterClass;
 import java.time.Duration;
 
 public class BaseSetUp {
-    public WebDriver driver;
-    static String driverPath = "src\\test\\resources\\drivers\\";
     private static final String DEFAULT_URL = "http://localhost:4200";
     private static final String ADMIN_URL = "http://localhost:4200/admin";
+    static String driverPath = "src\\test\\resources\\drivers\\";
+    public WebDriver driver;
 
     public WebDriver getDriver() {
         return driver;

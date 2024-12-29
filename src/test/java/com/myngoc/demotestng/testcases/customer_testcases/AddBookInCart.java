@@ -2,8 +2,10 @@ package com.myngoc.demotestng.testcases.customer_testcases;
 
 import com.myngoc.demotestng.common.BaseSetUp;
 import com.myngoc.demotestng.common.ExcelHelper;
-import com.myngoc.demotestng.common.ValidateHelper;
-import com.myngoc.demotestng.pages.customer.*;
+import com.myngoc.demotestng.pages.customer.LoginPage;
+import com.myngoc.demotestng.pages.customer.MyProfilePage;
+import com.myngoc.demotestng.pages.customer.ProductDetailPage;
+import com.myngoc.demotestng.pages.customer.ShoppingCartPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
@@ -47,20 +49,32 @@ public class AddBookInCart {
     }
 
     @Test(groups = "loginRequired", priority = 1)
-    public void addToCartWhenNotInCart() {
-        productDetailPage.verifyAddToCartMessage("Tuyển Tập Truyện Ngắn Hay Nhất Của Nguyễn Minh Châu");
+    public void addToCartWhenNotInCart() throws InterruptedException {
+        String bookName = "Tuyển Tập Truyện Ngắn Hay Nhất Của Nguyễn Minh Châu";
+        boolean isBookExisted = productDetailPage.isBookInCart(bookName);
+        if (isBookExisted) {
+            shoppingCartPage.deleteAllBooksFromCart();
+        }
+        productDetailPage.addToCart(bookName, true);
+        productDetailPage.verifyAddToCartMessage(false);
         shoppingCartPage.deleteAllBooksFromCart();
     }
 
     @Test(groups = "loginRequired", priority = 2)
-    public void addToCartWhenAlreadyInCart() {
-        productDetailPage.verifyAddToCartMessage("Nhật Ký Trong Tù");
-        productDetailPage.verifyAddToCartMessage("Nhật Ký Trong Tù");
+    public void addToCartWhenAlreadyInCart() throws InterruptedException {
+        Thread.sleep(1000);
+        String bookName = "Nhật Ký Trong Tù";
+        boolean isBookExisted = productDetailPage.isBookInCart(bookName);
+        if (!isBookExisted) {
+            productDetailPage.addToCart(bookName, true);
+        }
+        productDetailPage.addToCart(bookName, true);
+        productDetailPage.verifyAddToCartMessage(true);
         shoppingCartPage.deleteAllBooksFromCart();
     }
 
     @Test(groups = "noLogin", priority = 3)
-    public void addToCartWhenNotInCart_noLogin() {
+    public void addToCartWhenNotInCart_noLogin() throws InterruptedException {
         productDetailPage.verifyAddToCartMessage_nologin("Nhật Ký Trong Tù");
         shoppingCartPage.deleteAllBooksFromCart();
     }

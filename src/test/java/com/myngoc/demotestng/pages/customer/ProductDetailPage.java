@@ -43,18 +43,16 @@ public class ProductDetailPage {
         return validateHelper.verifyElementExistByLocator(By.xpath("//td[contains(text(),'" + bookName + "')]"));
     }
 
-    public void verifyAddToCartMessage(String bookName) {
-        boolean isBookAlreadyInCart = isBookInCart(bookName);
-        addToCart(bookName, true);
+    public void verifyAddToCartMessage(boolean isBookExisted) throws InterruptedException {
         String actualMessage = validateHelper.getSnackbarMessage();
-        if (isBookAlreadyInCart) {
+        if (isBookExisted) {
             Assert.assertEquals(actualMessage, "Sản phẩm đã có trong giỏ hàng", "Incorrect notification when the product already exists!");
         } else {
             Assert.assertEquals(actualMessage, "Thêm vào giỏ hàng thành công", "The message was incorrect when the product was first added!");
         }
     }
 
-    public void verifyAddToCartMessage_nologin(String bookName) {
+    public void verifyAddToCartMessage_nologin(String bookName) throws InterruptedException {
         addToCart(bookName, true);
         Assert.assertEquals(validateHelper.getSnackbarMessage(), "Đăng nhập để thêm vào giỏ hàng", "Notification is incorrect!");
     }
