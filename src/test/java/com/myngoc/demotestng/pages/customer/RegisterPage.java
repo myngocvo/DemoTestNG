@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class RegisterPage {
-    private WebDriver driver;
-    private ValidateHelper validateHelper;
+    private final WebDriver driver;
+    private final ValidateHelper validateHelper;
 
     @FindBy(xpath = "//span[contains(text(),\"Tài Khoản\")]")
     private WebElement accountModule;

@@ -45,8 +45,6 @@ public class ValidateHelper {
 
     public void setTextV2(WebElement element, String textValue) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
-//        element.sendKeys(Keys.CONTROL + "a");
-//        element.sendKeys(Keys.DELETE);
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         element.sendKeys(textValue);
     }
@@ -132,9 +130,7 @@ public class ValidateHelper {
     }
 
     public void scrollToElement(WebElement element) {
-        new Actions(driver)
-                .scrollToElement(element)
-                .perform();
+        new Actions(driver).scrollToElement(element).perform();
         System.out.println("Scrolled to element: " + element.toString());
     }
 
@@ -144,8 +140,7 @@ public class ValidateHelper {
     }
 
     public void waitForElementNotPresent(WebElement element, int timeoutInSeconds) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds))
-                .until(ExpectedConditions.invisibilityOf(element));
+        new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds)).until(ExpectedConditions.invisibilityOf(element));
     }
 
     public void waitForPageLoaded() {
@@ -165,8 +160,7 @@ public class ValidateHelper {
         ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
             @Override
             public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState")
-                        .toString().equals("complete");
+                return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
             }
         };
 

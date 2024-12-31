@@ -114,7 +114,7 @@ public class MyProfilePage {
     }
 
     //updateadress
-    public void updateAdress(String city, String district, String ward) throws InterruptedException {
+    public void updateAdress(String city, String district, String ward) {
         validateHelper.clickElement(adressTab);
         validateHelper.setText(provinceCityInput, city);
         validateHelper.setText(districtInput, district);
@@ -131,7 +131,7 @@ public class MyProfilePage {
     }
 
     //updatepassword
-    public void updatePassword(String currentPassword, String newPassword, String confirmPassword) throws Exception {
+    public void updatePassword(String currentPassword, String newPassword, String confirmPassword) {
         validateHelper.clickElement(passwordTab);
         validateHelper.setText(currentPasswordInput, currentPassword);
         validateHelper.setText(newPasswordInput, newPassword);

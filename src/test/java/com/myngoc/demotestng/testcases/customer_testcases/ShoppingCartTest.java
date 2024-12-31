@@ -7,7 +7,9 @@ import com.myngoc.demotestng.pages.customer.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
 public class ShoppingCartTest extends BaseSetUp {
     private WebDriver driver;
@@ -18,7 +20,7 @@ public class ShoppingCartTest extends BaseSetUp {
     private ExcelHelper excelHelper;
     private MyProfilePage myProfilePage;
 
-    @BeforeClass
+    @BeforeMethod
     public void setUp() {
         driver = new BaseSetUp().setupDriver("chrome", "customer");
         homePage = new HomePage(driver);
@@ -29,24 +31,15 @@ public class ShoppingCartTest extends BaseSetUp {
         excelHelper = new ExcelHelper();
         myProfilePage = new MyProfilePage(driver);
         PageFactory.initElements(driver, this);
-    }
-
-    @AfterClass
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-
-    @BeforeMethod
-    public void login() throws Exception {
         excelHelper.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
         loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
     }
 
     @AfterMethod
-    public void logout() throws Exception {
-        myProfilePage.logout();
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     @Test

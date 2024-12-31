@@ -34,7 +34,7 @@ public class RegisterTest {
         }
     }
 
-    @DataProvider(name = "registerData")
+    @DataProvider
     public Object[][] registerData() throws Exception {
         excel.setExcelFile("src/test/resources/excelData/customerRegisterData.xlsx", "registerData");
         int row = excel.getMaxRow();

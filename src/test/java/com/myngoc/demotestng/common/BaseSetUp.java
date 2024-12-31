@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
 
@@ -25,9 +24,6 @@ public class BaseSetUp {
         switch (browserType.toLowerCase()) {
             case "chrome":
                 driver = initChromeDriver();
-                break;
-            case "firefox":
-                driver = initFirefoxDriver();
                 break;
             case "edge":
                 driver = initEdgeDriver();
@@ -54,16 +50,6 @@ public class BaseSetUp {
         System.out.println("Launching Edge browser...");
         WebDriverManager.edgedriver().setup();
         driver = new EdgeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        return driver;
-    }
-
-    private WebDriver initFirefoxDriver() {
-        System.out.println("Launching Firefox browser...");
-        WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));

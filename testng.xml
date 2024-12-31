@@ -5,7 +5,7 @@
         <classes>
             <class name="com.myngoc.demotestng.testcases.admin_testcases.AddBookAdminTest">
                 <methods>
-                    <include name="addBook"/>
+                    <include name="addBook"/>0
                     <include name="deleteBook"/>
                 </methods>
             </class>

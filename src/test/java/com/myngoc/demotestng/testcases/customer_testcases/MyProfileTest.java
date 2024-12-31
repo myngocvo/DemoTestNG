@@ -54,7 +54,6 @@ public class MyProfileTest {
         } else {
             cusInfor = json.getCustomer("src/test/resources/jsonData/customerData.json", "customer1");
         }
-
         myProfilePage.updateProfile(cusInfor.getName(), cusInfor.getPhoneNumber(), cusInfor.getEmail(), cusInfor.getGender(), cusInfor.getDateOfBirth());
         Assert.assertEquals(validateHelper.getSnackbarMessage(), "Lưu hồ sơ thành công", "Notification is incorrect");
         Thread.sleep(4000);
@@ -79,7 +78,6 @@ public class MyProfileTest {
         } else {
             address = json.getAddress("src/test/resources/jsonData/customerData.json", "customer1");
         }
-
         myProfilePage.updateAdress(address.getCity(), address.getDistrict(), address.getWard());
         Assert.assertEquals(validateHelper.getSnackbarMessage(), "Lưu địa chỉ thành công", "Notification is incorrect");
         myProfilePage.verifyUpdateAdress(address.getCity(), address.getDistrict(), address.getWard());

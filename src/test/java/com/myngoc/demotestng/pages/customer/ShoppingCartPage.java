@@ -12,8 +12,6 @@ import java.util.List;
 public class ShoppingCartPage {
     private WebDriver driver;
     private ValidateHelper validateHelper;
-    private HomePage homePage;
-    private ProductDetailPage productDetailPage;
 
     @FindBy(xpath = "//img[@alt=\"No products\"]")
     private WebElement noProductImg;
@@ -30,8 +28,6 @@ public class ShoppingCartPage {
     public ShoppingCartPage(WebDriver driver) {
         this.driver = driver;
         this.validateHelper = new ValidateHelper(driver);
-        this.homePage = new HomePage(driver);
-        this.productDetailPage = new ProductDetailPage(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -69,13 +65,8 @@ public class ShoppingCartPage {
                 validateHelper.clickElement(deleteBtn);
                 productCount--;
             } catch (Exception e) {
-                System.out.println("Nothing");
+                System.out.println("Error during deleting due to: " + e.getMessage());
             }
         }
     }
-
-    public void buyBooksFromCart(String bookName) {
-
-    }
-
 }
