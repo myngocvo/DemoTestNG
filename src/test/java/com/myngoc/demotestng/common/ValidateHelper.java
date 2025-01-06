@@ -10,45 +10,38 @@ import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.Objects;
 
+// Lớp ValidateHelper cung cấp các phương thức hỗ trợ kiểm tra và thao tác với các thành phần trên trang web
 public class ValidateHelper {
 
-    private final WebDriver driver;
-    By snackbarLocator = By.cssSelector("simple-snack-bar .mat-mdc-snack-bar-label");
-    private WebDriverWait wait;
-    private int timeoutWaitForPageLoaded = 30;
-    private Actions actions;
-    private Select select;
-    private JavascriptExecutor js;
+    private final WebDriver driver; // Đối tượng WebDriver chính
+    private final Actions actions; // Hỗ trợ thao tác nâng cao như cuộn trang, kéo thả
+    By snackbarLocator = By.cssSelector("simple-snack-bar .mat-mdc-snack-bar-label"); // Định vị Snackbar
+    private WebDriverWait wait; // WebDriverWait để xử lý chờ
 
+    // Hàm khởi tạo, thiết lập các đối tượng cần thiết
     public ValidateHelper(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         actions = new Actions(driver);
-        js = (JavascriptExecutor) driver;
     }
 
-    public String getPageTitle() {
-        try {
-            return driver.getTitle();
-        } catch (Exception e) {
-            System.err.println("Unable to fetch the page title: " + e.getMessage());
-            return null;
-        }
-    }
-
+    // Nhập text vào một ô input
     public void setText(WebElement element, String textValue) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.clear();
         element.sendKeys(textValue);
     }
 
+    // Nhập text sau khi xóa toàn bộ nội dung cũ
     public void setTextV2(WebElement element, String textValue) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
         element.sendKeys(textValue);
     }
 
+    // Click vào một phần tử trên trang
     public void clickElement(WebElement element) {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         Assert.assertNotNull(element, "The element is not found!");
@@ -56,44 +49,31 @@ public class ValidateHelper {
         element.click();
     }
 
+    // Lấy phần tử bằng text chứa trong XPath
     public WebElement getElementByContainText(String text) {
         String dynamicXpath = "//*[contains(text(), '" + text + "')]";
         return driver.findElement(By.xpath(dynamicXpath));
     }
 
-    public void rightClickElement(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        actions.contextClick().build().perform();
-    }
-
+    // Chọn giá trị trong dropdown bằng text
     public void selectOptionByText(WebElement element, String value) {
-        select = new Select(element);
+        // Hỗ trợ làm việc với dropdown
+        Select select = new Select(element);
         select.selectByVisibleText(value);
     }
 
-    public void selectOptionByValue(WebElement element, String value) {
-        select = new Select(element);
-        select.selectByValue(value);
-    }
-
-    public void verifyOptionTotal(WebElement element) {
-        select = new Select(element);
-        System.out.println(select.getOptions().size());
-        System.out.println(select.getOptions());
-    }
-
+    // Xác minh URL hiện tại có chứa đoạn text mong muốn
     public boolean verifyUrl(String url) {
         String currentUrl = driver.getCurrentUrl();
-        assert currentUrl != null;
-        return currentUrl.contains(url);
+        System.out.println(currentUrl);
+        return currentUrl != null && currentUrl.contains(url);
     }
 
+    // Xác minh text của một phần tử
     public boolean verifyElementText(WebElement element, String expectedText) {
         try {
-
             String actualText = element.getText().trim().replaceAll("\\s+", "");
             String normalizedExpectedText = expectedText.trim().replaceAll("\\s+", "");
-
             Assert.assertEquals(actualText, normalizedExpectedText, "Element text does not match!");
             return true;
         } catch (Exception e) {
@@ -102,25 +82,23 @@ public class ValidateHelper {
         }
     }
 
+    // Kiểm tra sự tồn tại của phần tử WebElement
     public boolean verifyElementExistByWebElement(WebElement element) {
         try {
-            if (element != null && element.isDisplayed()) {
-                return true;
-            } else {
-                System.err.println("Element is either null or not displayed.");
-                return false;
-            }
+            return element != null && element.isDisplayed();
         } catch (Exception e) {
             System.err.println("Error verifying WebElement existence: " + e.getMessage());
             return false;
         }
     }
 
+    // Kiểm tra sự tồn tại của phần tử bằng Locator
     public boolean verifyElementExistByLocator(By element) {
         List<WebElement> listElement = driver.findElements(element);
         return !listElement.isEmpty();
     }
 
+    // Lấy message từ Snackbar nếu tồn tại
     public String getSnackbarMessage() throws InterruptedException {
         Thread.sleep(400);
         if (driver.findElement(snackbarLocator).isDisplayed()) {
@@ -129,50 +107,41 @@ public class ValidateHelper {
         return null;
     }
 
+    // Cuộn tới một phần tử cụ thể trên trang
     public void scrollToElement(WebElement element) {
-        new Actions(driver).scrollToElement(element).perform();
+        actions.scrollToElement(element).perform();
         System.out.println("Scrolled to element: " + element.toString());
     }
 
-    public void waitForElementToBeClickable(WebElement element, int timeoutInSeconds) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
-
-    public void waitForElementNotPresent(WebElement element, int timeoutInSeconds) {
-        new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds)).until(ExpectedConditions.invisibilityOf(element));
-    }
-
+    // Chờ trang tải hoàn toàn (bao gồm jQuery và Javascript)
     public void waitForPageLoaded() {
-        // wait for jQuery to loaded
-        ExpectedCondition<Boolean> jQueryLoad = new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                try {
-                    return ((Long) ((JavascriptExecutor) driver).executeScript("return jQuery.active") == 0);
-                } catch (Exception e) {
-                    return true;
-                }
+        // Điều kiện chờ jQuery tải xong
+        ExpectedCondition<Boolean> jQueryLoad = driver -> {
+            try {
+                assert driver != null;
+                Object jQueryActive = ((JavascriptExecutor) driver).executeScript("return jQuery.active");
+                return jQueryActive != null && (Long) jQueryActive == 0;
+            } catch (Exception e) {
+                return true; // Nếu không có jQuery, coi như tải xong
             }
         };
 
-        // wait for Javascript to loaded
-        ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
-            @Override
-            public Boolean apply(WebDriver driver) {
-                return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString().equals("complete");
-            }
+        // Điều kiện chờ Javascript tải xong
+        ExpectedCondition<Boolean> jsLoad = driver ->
+        {
+            assert driver != null;
+            return Objects.requireNonNull(((JavascriptExecutor) driver).executeScript("return document.readyState"))
+                    .toString().equals("complete");
         };
 
         try {
+            int timeoutWaitForPageLoaded = 30; // Thời gian chờ tối đa
             wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutWaitForPageLoaded));
-            wait.until(jQueryLoad);
-            wait.until(jsLoad);
+            wait.until(jQueryLoad); // Chờ jQuery
+            wait.until(jsLoad);    // Chờ Javascript
         } catch (Throwable error) {
             Assert.fail("Page load time exceeded");
         }
-
     }
-
 
 }

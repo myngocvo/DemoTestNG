@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class BookPage {
+public class BookPageAdmin {
     private WebDriver driver;
     private ValidateHelper validateHelper;
-    private DashboardAdminPage dashboardAdminPage;
+    private DashboardPageAdmin dashboardPageAdmin;
 
     @FindBy(className = "mdc-button__label")
     private WebElement addBookButton;
@@ -63,10 +63,10 @@ public class BookPage {
     @FindBy(xpath = "//button//span[contains(text(), 'Xóa')]")
     private WebElement confirmDelete;
 
-    public BookPage(WebDriver driver) {
+    public BookPageAdmin(WebDriver driver) {
         this.driver = driver;
         validateHelper = new ValidateHelper(driver);
-        dashboardAdminPage = new DashboardAdminPage(driver);
+        dashboardPageAdmin = new DashboardPageAdmin(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -84,7 +84,7 @@ public class BookPage {
 
     public void addBook(String bookName, String publishYear, String author, String category, String supplier, String price, String quantity, String pricePrecent, String pageNumber, String dimention, String status, String description, Image image) throws Exception {
         //validateHelper.clickElement(addBookButton);
-        dashboardAdminPage.openAddBookPage();
+        dashboardPageAdmin.openAddBookPage();
         uploadImages(image);
         validateHelper.setText(bookNameInput, bookName);
         validateHelper.setText(publishYearInput, publishYear);

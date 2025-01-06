@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DashboardAdminPage {
+public class DashboardPageAdmin {
     private WebDriver driver;
     private ValidateHelper validateHelper;
 
@@ -21,20 +21,15 @@ public class DashboardAdminPage {
     @FindBy(xpath = "//span[contains(text(),\"Xác Nhận\")]")
     private WebElement confirmLogout;
 
-    public DashboardAdminPage(WebDriver driver) {
+    public DashboardPageAdmin(WebDriver driver) {
         this.driver = driver;
         validateHelper = new ValidateHelper(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public OrderManagementPage openOrderManagementPage() {
-        validateHelper.clickElement(orderManagement);
-        return new OrderManagementPage(driver);
-    }
-
-    public BookPage openAddBookPage() {
+    public BookPageAdmin openAddBookPage() {
         validateHelper.clickElement(addBookButton);
-        return new BookPage(driver);
+        return new BookPageAdmin(driver);
     }
 
     public void logout() {

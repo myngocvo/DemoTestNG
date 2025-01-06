@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-public class LoginAdminPage extends BaseSetUp {
-    private WebDriver drivre;
-    private ValidateHelper validateHelper;
+public class LoginPageAdmin extends BaseSetUp {
+    private final WebDriver driver;
+    private final ValidateHelper validateHelper;
 
     @FindBy(css = "input[placeholder=\"Email\"]")
     private WebElement emailInput;
@@ -22,26 +22,27 @@ public class LoginAdminPage extends BaseSetUp {
     private WebElement loginPageText;
 
 
-    public LoginAdminPage(WebDriver driver) {
+    public LoginPageAdmin(WebDriver driver) {
         this.driver = driver;
         this.validateHelper = new ValidateHelper(driver);
         PageFactory.initElements(driver, this);
     }
 
-    public DashboardAdminPage loginAdmin(String emailValue, String passwordValue) {
+    public void loginAdmin(String emailValue, String passwordValue) {
         Assert.assertTrue(validateHelper.verifyElementText(loginPageText, "QUẢN LÝ KANNBOOKSTORE"));
         validateHelper.setText(emailInput, emailValue);
         validateHelper.setText(passwordInput, passwordValue);
         validateHelper.clickElement(submitBtn);
-        return new DashboardAdminPage(driver);
+        new DashboardPageAdmin(driver);
     }
 
     public void verifyLoginAdmin(String email, String password, boolean expectedResult) {
         try {
             loginAdmin(email, password);
             if (expectedResult) {
+                Thread.sleep(800);
+                Assert.assertTrue(validateHelper.verifyUrl("books"), "Redirect to book page failed!");
                 Assert.assertEquals(validateHelper.getSnackbarMessage(), "Đăng nhập thành công");
-                Assert.assertTrue(validateHelper.verifyUrl("books"), "Redirect to profile page failed!");
                 System.out.println("Email: " + email + ", Password: " + password + " Passed!");
             } else {
                 Assert.assertEquals(validateHelper.getSnackbarMessage(), "Đăng nhập thất bại. Kiểm tra lại tài khoản và mật khẩu");

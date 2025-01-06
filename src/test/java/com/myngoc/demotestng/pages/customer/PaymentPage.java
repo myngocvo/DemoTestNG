@@ -20,6 +20,7 @@ public class PaymentPage {
     private final MyProfilePage myProfilePage;
     private final JsonHelper jsonHelper;
     private final HomePage homePage;
+    private ShoppingCartPage shoppingCartPage;
 
     // Định nghĩa các thành phần giao diện liên quan đến trang thanh toán
     @FindBy(xpath = "//tr[1]//th[1]//input[@type='checkbox']")
@@ -45,6 +46,7 @@ public class PaymentPage {
         validateHelper = new ValidateHelper(driver);
         myProfilePage = new MyProfilePage(driver);
         homePage = new HomePage(driver);
+        shoppingCartPage = new ShoppingCartPage(driver);
         jsonHelper = new JsonHelper();
         PageFactory.initElements(driver, this);
     }
@@ -62,18 +64,20 @@ public class PaymentPage {
     }
 
     // Lấy thông tin sách trong giỏ hàng
-    public Object[][] getBookInfo(String[] books) {
-        Object[][] booksData = new Object[books.length + 1][2];
+    public Object[][] getBookInfo() {
+        List<WebElement> bookInCart = shoppingCartPage.getCartItems();
+        int bookNum = bookInCart.size();
+        Object[][] booksData = new Object[bookNum + 1][2];
         int total = 0;
-        for (int i = 0; i < books.length; i++) {
-            booksData[i][0] = driver.findElement(By.xpath("//tr[contains(@class,'book')][" + (i + 1) + "]/td[3]")).getText(); // Lấy tên sách
-            booksData[i][1] = getIntFromCurrency(driver.findElement(By.xpath("//tr[contains(@class,'book')][" + (i + 1) + "]/td[6]")).getText()); // Lấy giá sách
+        for (int i = 0; i < bookNum; i++) {
+            booksData[i][0] = driver.findElement(By.xpath("//tr[contains(@class,'book')][" + (i + 1) + "]//td[3]")).getText(); // Lấy tên sách
+            booksData[i][1] = getIntFromCurrency(driver.findElement(By.xpath("//tr[contains(@class,'book')][" + (i + 1) + "]//td[6]")).getText()); // Lấy giá sách
             total += (int) booksData[i][1]; // Cộng tổng tiền sách
         }
         // Kiểm tra tổng tiền sách
         if (verifyTotal(total)) {
-            booksData[books.length][0] = "Total";
-            booksData[books.length][1] = total;
+            booksData[bookNum][0] = "Total";
+            booksData[bookNum][1] = total;
         }
         return booksData;
     }
@@ -87,7 +91,7 @@ public class PaymentPage {
     // Xác minh thông tin thanh toán
     public void verifyPaymentInfo(Object[][] bookInfo, boolean isHaveVoucher, double discountPercent, double maxValueDiscount) {
         for (int i = 0; i < bookInfo.length - 1; i++) {
-            validateHelper.scrollToElement(driver.findElement(By.xpath("//tbody//tr[" + (i + 1) + "]//td[2]"))); // Cuộn tới từng sản phẩm
+            validateHelper.scrollToElement(driver.findElement(By.xpath("//tbody//tr[" + (i + 1) + "]"))); // Cuộn tới từng sản phẩm
             String bookName = driver.findElement(By.xpath("//tbody//tr[" + (i + 1) + "]//td[2]")).getText(); // Lấy tên sách
             String bookPrice = driver.findElement(By.xpath("//tbody//tr[" + (i + 1) + "]//td[6]")).getText(); // Lấy giá sách
             Assert.assertEquals(bookName, bookInfo[i][0]); // Kiểm tra tên sách
@@ -118,12 +122,12 @@ public class PaymentPage {
 
     // Xử lý thanh toán
     public void makeAPayment(boolean isHaveAddress, String addressOfCus, boolean isHaveVoucher, double discountPercent, double maxValueDiscount) {
-        validateHelper.clickElement(paymentButton); // Click vào nút thanh toán
+        validateHelper.clickElement(paymentButton);
         if (!isHaveAddress) {
-            updateAddressWhenPayment(addressOfCus); // Cập nhật địa chỉ nếu chưa có
+            updateAddressWhenPayment(addressOfCus);
         }
         if (isHaveVoucher) {
-            clickAVoucher(discountPercent, maxValueDiscount); // Chọn voucher nếu có
+            clickAVoucher(discountPercent, maxValueDiscount);
         }
     }
 
@@ -134,18 +138,18 @@ public class PaymentPage {
         String maxPriceDiscount = "Số tiền tối đa: " + (int) maxValueDiscount + "đ";
         for (WebElement voucher : vouchers) {
             if (voucher.getText().contains(voucherDiscount) && voucher.getText().contains(maxPriceDiscount)) {
-                validateHelper.clickElement(voucher); // Click vào voucher phù hợp
+                validateHelper.clickElement(voucher);
             }
         }
     }
 
     // Cập nhật địa chỉ khi thanh toán
     public void updateAddressWhenPayment(String addressOfCus) {
-        updateAddress.click(); // Click vào nút cập nhật địa chỉ
-        Address address = jsonHelper.getAddress("src/test/resources/jsonData/customerData.json", addressOfCus); // Lấy thông tin địa chỉ từ file JSON
-        myProfilePage.updateAdress(address.getCity(), address.getDistrict(), address.getWard()); // Cập nhật địa chỉ trên trang hồ sơ
-        homePage.openShoppingCart(); // Mở lại giỏ hàng
-        checkAll.click(); // Chọn tất cả sản phẩm
-        validateHelper.clickElement(paymentButton); // Click vào nút thanh toán
+        updateAddress.click();
+        Address address = jsonHelper.getAddress("src/test/resources/jsonData/customerData.json", addressOfCus);
+        myProfilePage.updateAdress(address.getCity(), address.getDistrict(), address.getWard());
+        homePage.openShoppingCart();
+        checkAll.click();
+        validateHelper.clickElement(paymentButton);
     }
 }

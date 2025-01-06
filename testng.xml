@@ -5,7 +5,7 @@
         <classes>
             <class name="com.myngoc.demotestng.testcases.admin_testcases.AddBookAdminTest">
                 <methods>
-                    <include name="addBook"/>0
+                    <include name="addBook"/>
                     <include name="deleteBook"/>
                 </methods>
             </class>
@@ -14,7 +14,12 @@
                     <include name="loginAdmin"/>
                 </methods>
             </class>
-            <class name="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCart">
+            <class name="com.myngoc.demotestng.testcases.admin_testcases.UserAdminTest">
+                <methods>
+                    <include name="testDeleteUser"/>
+                </methods>
+            </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.AddBookInCartTest">
                 <methods>
                     <include name="addToCartWhenNotInCart"/>
                     <include name="addToCartWhenAlreadyInCart"/>
@@ -23,8 +28,6 @@
             </class>
             <class name="com.myngoc.demotestng.testcases.customer_testcases.HomePageTest">
                 <methods>
-                    <include name="openShoppingCartPage_login"/>
-                    <include name="openShoppingCartPage_nologin"/>
                     <include name="searchBookMatchingResults"/>
                     <include name="searchBookMatchingPartialResults"/>
                     <include name="searchBookNoResults"/>
@@ -46,6 +49,11 @@
                     <include name="testConfirmPasswordIncorrectUpdatePassword"/>
                 </methods>
             </class>
+            <class name="com.myngoc.demotestng.testcases.customer_testcases.PaymentTest">
+                <methods>
+                    <include name="testPaymentSuccess"/>
+                </methods>
+            </class>
             <class name="com.myngoc.demotestng.testcases.customer_testcases.RegisterTest">
                 <methods>
                     <include name="testRegister"/>
@@ -56,6 +64,7 @@
                     <include name="testDisplayEmptyShoppingCart"/>
                     <include name="testDeleteSingleBookFromCart"/>
                     <include name="testDeleteAllBooksFromCart"/>
+                    <include name="testGetTotalWhenCheckBook"/>
                 </methods>
             </class>
         </classes>

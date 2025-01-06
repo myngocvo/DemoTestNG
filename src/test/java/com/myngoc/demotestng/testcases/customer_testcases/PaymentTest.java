@@ -22,6 +22,32 @@ public class PaymentTest {
     private ProductDetailPage productDetailPage;
     private PaymentPage paymentPage;
 
+    // Phương thức dọn dẹp tài nguyên sau khi chạy xong test case
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit(); // Đóng driver nếu còn hoạt động
+        }
+    }
+
+    // Phương thức khởi tạo trước khi chạy từng test case
+    @BeforeMethod
+    public void setUp() {
+        // Khởi tạo driver với trình duyệt Chrome và vai trò customer
+        driver = new BaseSetUp().setupDriver("customer");
+        // Khởi tạo các trang cần dùng
+        homePage = new HomePage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+        productDetailPage = new ProductDetailPage(driver);
+        ExcelHelper excelHelper = new ExcelHelper();
+        paymentPage = new PaymentPage(driver);
+        // Khởi tạo các phần tử trên trang với PageFactory
+        PageFactory.initElements(driver, this);
+        // Đọc dữ liệu đăng nhập từ file Excel
+        excelHelper.setExcelFile("src/test/resources/excelData/loginData.xlsx", "customer");
+        loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
+    }
+
     // DataProvider cung cấp dữ liệu đầu vào cho test case
     @DataProvider
     public static Object[][] getPaymentOptions() {
@@ -44,66 +70,23 @@ public class PaymentTest {
         return options; // Trả về dữ liệu cho test case
     }
 
-    // Phương thức khởi tạo trước khi chạy từng test case
-    @BeforeMethod
-    public void setUp() {
-        // Khởi tạo driver với trình duyệt Chrome và vai trò customer
-        driver = new BaseSetUp().setupDriver("chrome", "customer");
-
-        // Khởi tạo các trang cần dùng
-        homePage = new HomePage(driver);
-        LoginPage loginPage = new LoginPage(driver);
-        productDetailPage = new ProductDetailPage(driver);
-        ExcelHelper excelHelper = new ExcelHelper();
-        paymentPage = new PaymentPage(driver);
-
-        // Khởi tạo các phần tử trên trang với PageFactory
-        PageFactory.initElements(driver, this);
-
-        // Đọc dữ liệu đăng nhập từ file Excel
-        excelHelper.setExcelFile("src/test/resources/excelData/customerLoginData.xlsx", "dataLogin");
-        loginPage.login(excelHelper.getCellStringData("username", 1), excelHelper.getCellStringData("password", 1));
-    }
-
-    // Phương thức dọn dẹp tài nguyên sau khi chạy xong test case
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit(); // Đóng driver nếu còn hoạt động
-        }
-    }
-
     // Test case kiểm thử quy trình thanh toán thành công
     @Test(dataProvider = "getPaymentOptions")
     public void testPaymentSuccess(boolean isHaveAddress, String address, boolean isHaveVoucher, double discountPercent, double maxValueDiscount) throws InterruptedException {
-        // Danh sách các cuốn sách cần thêm vào giỏ hàng
-        String[] books = {
-                "CÁCH NỀN KINH TẾ VẬN HÀNH Niềm tin, sự sụp đổ và những lời tiên tri tự đúng",
-                "Lời Thú Tội Của Một Sát Thủ Kinh Tế - Bìa Cứng (Tái Bản 2023)",
-                "Tuyển tập Vũ Trọng Phụng",
-                "Tuyển Tập Truyện Ngắn Hay Nhất Của Nguyễn Minh Châu",
-                "Văn Học Trong Nhà Trường: Thơ Nguyễn Khuyến"};
-
-        // Mở giỏ hàng trên trang chủ
-        homePage.openShoppingCart();
-
         // Thêm từng cuốn sách vào giỏ hàng
-        for (String book : books) {
-            productDetailPage.addToCart(book, true);
+        ExcelHelper excelHelper = new ExcelHelper();
+        excelHelper.setExcelFile("src/test/resources/excelData/paymentData.xlsx", "bookNames");
+        for (int i = 0; i < excelHelper.getMaxRow(); i++) {
+            productDetailPage.addToCart(excelHelper.getCellStringData("bookName", (i + 1)), true);
         }
-
-        // Mở lại giỏ hàng sau khi thêm sách
+        // Mở giỏ hàng sau khi thêm sách
         homePage.openShoppingCart();
-
         // Lấy thông tin về các cuốn sách trong giỏ hàng
-        Object[][] bookInfo = paymentPage.getBookInfo(books);
-
+        Object[][] bookInfo = paymentPage.getBookInfo();
         // Tiến hành thanh toán với các tùy chọn đã cung cấp
         paymentPage.makeAPayment(isHaveAddress, address, isHaveVoucher, discountPercent, maxValueDiscount);
-
         // Xác minh thông tin thanh toán
         paymentPage.verifyPaymentInfo(bookInfo, isHaveVoucher, discountPercent, maxValueDiscount);
-
         // Nhấn nút đặt hàng
         paymentPage.clickOrder();
     }

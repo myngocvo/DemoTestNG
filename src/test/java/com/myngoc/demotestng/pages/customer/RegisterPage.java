@@ -43,22 +43,18 @@ public class RegisterPage {
 
     }
 
-    public boolean isRegisterSuccess(String phoneNumber, String username, String password, String confirmPassword, boolean expectedResult) {
+    public boolean testRegister(String phoneNumber, String username, String password, String confirmPassword, String message) {
+        boolean result = false;
         try {
             register(phoneNumber, username, password, confirmPassword);
             String snackBarMessage = validateHelper.getSnackbarMessage();
-            if (expectedResult) {
-                Assert.assertEquals(snackBarMessage, "Đăng ký thành công!", "Wrong snack bar message!");
-                return true;
-            } else {
-                Assert.assertNotEquals(snackBarMessage, "Đăng ký thành công!", "Wrong snack bar message!");
-                return false;
-            }
+            Assert.assertEquals(snackBarMessage, message, "Wrong snack bar message!");
+            result = true;
         } catch (Exception e) {
             System.out.println("Username: " + username + ", Password: " + password + ", Sign up error due to: " + e.getMessage());
-            return false;
         } finally {
             if (driver != null) driver.quit();
         }
+        return result;
     }
 }

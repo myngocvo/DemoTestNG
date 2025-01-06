@@ -6,8 +6,10 @@ import com.myngoc.demotestng.Customer;
 import com.myngoc.demotestng.Image;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
+import java.io.IOException;
 
 public class JsonHelper {
     public Customer getCustomer(String filePath, String customerName) {
@@ -88,5 +90,16 @@ public class JsonHelper {
             ex.printStackTrace();
         }
         return result;
+    }
+
+    public String getDriverName() {
+        try {
+            FileReader reader = new FileReader("src/test/resources/jsonData/driverSetup.json");
+            JSONParser jsonParser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) jsonParser.parse(reader);
+            return jsonObject.get("driverName").toString();
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
